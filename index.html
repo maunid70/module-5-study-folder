@@ -13,9 +13,10 @@
 <body>
 <header class="top">
   <div class="wrap axis">
-    <a class="word" href="#top" id="top">Module 5</a>
+    <a class="word" href="#home" id="top">Module 5</a>
     <div class="top-right">
       <nav class="top-links" aria-label="Sections">
+        <a href="#days">Study days</a>
         <a href="#flashcards">Flashcards</a>
         <a href="#tools">Tools</a>
         <a href="#spectrum">Spectrum</a>
@@ -26,7 +27,7 @@
   </div>
 </header>
 
-<div class="mosaic" aria-label="Pictures of the hydrogen atom">
+<div class="mosaic" data-page="home" aria-label="Pictures of the hydrogen atom">
   <figure class="tile drift"><img src="img/orb-2p.webp" width="720" height="1080" alt="Electron density of hydrogen’s 2p orbital: two lobes above and below a dark nodal plane"></figure>
   <figure class="tile c-mint"></figure>
   <figure class="tile"><picture><source srcset="img/emit-poster.webp" media="(prefers-reduced-motion: reduce)"><img src="img/emit.webp" width="480" height="720" alt="Electron cloud of hydrogen in a 1s plus 2p mix, sloshing up and down"></picture></figure>
@@ -35,14 +36,14 @@
   <figure class="tile drift"><img src="img/orb-3dxz.webp" width="720" height="1080" alt="Electron density of the 3d xz orbital: four lobes between two dark nodal planes"></figure>
 </div>
 
-<section class="title" aria-labelledby="h1">
+<section class="title" data-page="home" aria-labelledby="h1">
   <div class="wrap axis">
     <div class="side"><p class="standfirst">Honors Chemistry 2, day by day: a summary of every video and handout, key terms, common mistakes, worked problems and a practice quiz for every class.</p></div>
     <h1 id="h1"><span class="line"><span>Atomic structure</span></span><span class="line"><span>&amp; periodic trends</span></span></h1>
   </div>
 </section>
 
-<section class="exam" aria-labelledby="exam-h">
+<section class="exam" data-page="home" aria-labelledby="exam-h">
   <div class="wrap">
     <div class="exam-top">
       <h2 id="exam-h">Exam on Tuesday 11/10</h2>
@@ -57,14 +58,14 @@
   </div>
 </section>
 
-<section class="statement" aria-labelledby="st-h">
+<section class="statement" data-page="home" aria-labelledby="st-h">
   <div class="wrap">
     <h2 id="st-h" class="vh">What the module covers</h2>
     <p data-rise>Light arrives in packets <span class="slot"><img src="img/orb-1s.webp" alt="1s orbital" width="720" height="1080"></span> and every element gives off its own lines <span class="slot"><img src="img/balmer.webp" alt="Hydrogen’s four visible emission lines" width="1600" height="500"></span>. Electrons fill orbitals <span class="slot"><img src="img/orb-3p.webp" alt="3p orbital" width="720" height="1080"></span>, and the order they fill in explains every periodic trend.</p>
   </div>
 </section>
 
-<section class="days" id="days" aria-labelledby="days-h">
+<section class="days" data-page="days" id="days" aria-labelledby="days-h">
   <div class="wrap">
     <div class="days-head">
       <h2 id="days-h"><span class="soft">Study folders,</span> one per class day</h2>
@@ -77,14 +78,14 @@
   </div>
 </section>
 
-<section class="reading" id="reading" aria-labelledby="reading-h">
+<section class="reading" data-page="days" id="reading" aria-labelledby="reading-h">
   <div class="wrap axis">
     <div class="side" id="side"></div>
     <div class="read-main"><h2 id="reading-h">Summary</h2><div class="sum" id="sum"></div></div>
   </div>
 </section>
 
-<section class="ink quiz" id="quiz" aria-labelledby="quiz-h">
+<section class="ink quiz" data-page="days" id="quiz" aria-labelledby="quiz-h">
   <div class="wrap axis">
     <div class="side">
       <h2 id="quiz-h">Practice quiz</h2>
@@ -95,7 +96,7 @@
   </div>
 </section>
 
-<section class="flash" id="flashcards" aria-labelledby="fc-h">
+<section class="flash" data-page="flashcards" id="flashcards" aria-labelledby="fc-h">
   <div class="wrap axis">
     <div class="side">
       <h2 id="fc-h">Flashcards</h2>
@@ -129,7 +130,7 @@
   </div>
 </section>
 
-<section class="mint spectrum" id="spectrum" aria-labelledby="spec-h">
+<section class="mint spectrum" data-page="tools" id="spectrum" aria-labelledby="spec-h">
   <div class="wrap axis">
     <div class="side">
       <h2 id="spec-h">Check a hydrogen line</h2>
@@ -158,7 +159,7 @@
   </div>
 </section>
 
-<section class="ink bench" id="tools" aria-labelledby="tools-h">
+<section class="ink bench" data-page="tools" id="tools" aria-labelledby="tools-h">
   <div class="wrap">
     <div class="bench-head">
       <h2 id="tools-h">Chemistry tools</h2>
@@ -272,7 +273,7 @@
   </div>
 </section>
 
-<section class="eqs" id="equations" aria-labelledby="eq-h">
+<section class="eqs" data-page="equations" id="equations" aria-labelledby="eq-h">
   <div class="wrap axis">
     <div class="side">
       <h2 id="eq-h">Equation sheet</h2>
@@ -316,7 +317,7 @@
   </div>
 </section>
 
-<section class="about" id="about" aria-labelledby="about-h">
+<section class="about" data-page="home" id="about" aria-labelledby="about-h">
   <div class="wrap axis">
     <div class="side"><h2 id="about-h">About this guide</h2></div>
     <div class="runin">

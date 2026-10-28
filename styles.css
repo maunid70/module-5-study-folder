@@ -617,3 +617,11 @@ dl.mini dd { margin: 4px 0 0; font-family: var(--display); font-size: var(--step
 .calc .fld input::placeholder { font-size: var(--step-body); font-family: var(--text); }
 .pt-swipe { display: none; margin-top: 10px; }
 @media (max-width: 860px) { .pt-swipe { display: block; } }
+
+/* One page at a time */
+body[data-page] [data-page] { display: none; }
+body[data-page="home"] [data-page="home"], body[data-page="days"] [data-page="days"], body[data-page="flashcards"] [data-page="flashcards"],
+body[data-page="tools"] [data-page="tools"], body[data-page="equations"] [data-page="equations"] { display: block; }
+body[data-page="home"] .mosaic[data-page] { display: grid; }
+.top-links a[aria-current] { text-decoration: underline; text-decoration-thickness: 2px; }
+body:not([data-page="home"]) .top { border-bottom: 1px solid var(--surface-2); margin-bottom: clamp(24px, 4vw, 56px); }

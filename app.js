@@ -144,8 +144,21 @@ document.addEventListener("click", e => {
 });
 
 /* Hash routing: #d1027 opens that folder */
+/* Pages: one section group shows at a time, picked by the hash */
+const PAGE_OF = { home: "home", top: "home", about: "home", days: "days", reading: "days", quiz: "days",
+  flashcards: "flashcards", tools: "tools", spectrum: "tools", equations: "equations" };
+function setPage(h) {
+  const p = META[h] ? "days" : PAGE_OF[h] || "home";
+  const changed = document.body.dataset.page !== p;
+  document.body.dataset.page = p;
+  document.querySelectorAll(".top-links a, .word").forEach(a => a.toggleAttribute("aria-current", (PAGE_OF[a.hash.slice(1)] || "") === p && a.classList.contains("word") === (p === "home")));
+  if (META[h]) return;
+  const target = document.getElementById(h), firstOnPage = target && target === document.querySelector(`[data-page="${p}"]:not(.mosaic)`);
+  if (changed || target) requestAnimationFrame(() => (target && !firstOnPage && p !== "home") ? target.scrollIntoView({ block: "start" }) : window.scrollTo(0, 0));
+}
 function route(first) {
   const h = location.hash.slice(1);
+  setPage(h);
   if (META[h]) {
     show(h, { animate: !first });
     const target = $("days");
