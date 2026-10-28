@@ -14,8 +14,16 @@ A static site with no build step. Vercel serves these files as they are.
 | The equation sheet, trends table, exam facts or "About this guide" | `index.html` |
 | Colors, type and layout | `styles.css` (colors are the tokens at the top) |
 | Quiz, tabs, countdown and spectrum check behaviour | `app.js` |
+| Equation and constant flashcards (term cards come from the day files) | `data/cards.js` |
+| Flashcard behaviour | `flashcards.js` |
+| Element values for the periodic trends explorer | `data/elements.js` |
+| Electron configuration, quantum numbers, trends explorer and calculators | `tools.js` |
 
 Days load in class order from the script tags at the bottom of `index.html`. A new day needs its own file there and a `META` entry in `app.js`.
+
+## Analytics
+
+`index.html` loads Vercel Web Analytics from `/_vercel/insights/script.js`. It starts counting once Web Analytics is switched on for the project in the Vercel dashboard (Analytics tab, Enable).
 
 ## Pictures
 

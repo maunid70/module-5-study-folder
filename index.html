@@ -16,9 +16,10 @@
     <a class="word" href="#top" id="top">Module 5</a>
     <div class="top-right">
       <nav class="top-links" aria-label="Sections">
-        <a href="#days">Study days</a>
-        <a href="#spectrum">Spectrum check</a>
-        <a href="#equations">Equation sheet</a>
+        <a href="#flashcards">Flashcards</a>
+        <a href="#tools">Tools</a>
+        <a href="#spectrum">Spectrum</a>
+        <a href="#equations">Equations</a>
       </nav>
       <a class="btn" href="#days" id="today-btn">Open today’s folder</a>
     </div>
@@ -94,6 +95,40 @@
   </div>
 </section>
 
+<section class="flash" id="flashcards" aria-labelledby="fc-h">
+  <div class="wrap axis">
+    <div class="side">
+      <h2 id="fc-h">Flashcards</h2>
+      <p>Key terms from every folder, plus the equation sheet. Flip a card, then say whether you knew it. Cards you miss come back a few cards later.</p>
+      <div class="fc-opts">
+        <div class="fld"><label for="fc-deck">Deck</label><select id="fc-deck"></select></div>
+        <label class="chk"><input type="checkbox" id="fc-rev"> Show the definition first</label>
+      </div>
+      <p class="fc-count" id="fc-count" aria-live="polite"></p>
+      <div class="fc-links"><button type="button" class="linkbtn" id="fc-shuffle">Shuffle</button><button type="button" class="linkbtn" id="fc-restart">Start this deck over</button></div>
+      <p class="fc-keys">On a keyboard: Space flips, → for knew it, ← for again.</p>
+    </div>
+    <div class="fc-main">
+      <div class="fc-stage">
+        <button type="button" class="card" id="fc-card" aria-describedby="fc-hint">
+          <span class="face front"><span class="k" id="fc-kf">Term</span><span class="tx" id="fc-front"></span><span class="hint" id="fc-hint">Tap to flip</span></span>
+          <span class="face back"><span class="k" id="fc-kb">Definition</span><span class="tx" id="fc-back"></span></span>
+        </button>
+        <div class="fc-done" id="fc-done" hidden>
+          <p class="big">You knew every card in this deck.</p>
+          <p id="fc-done-note"></p>
+          <button type="button" class="btn" id="fc-again-all">Go through it again</button>
+        </div>
+      </div>
+      <div class="fc-actions">
+        <button type="button" class="act again" id="fc-no"><span aria-hidden="true">←</span> Again</button>
+        <button type="button" class="act got" id="fc-yes">I knew it <span aria-hidden="true">→</span></button>
+      </div>
+      <div class="fc-bar" aria-hidden="true"><span id="fc-bar"></span></div>
+    </div>
+  </div>
+</section>
+
 <section class="mint spectrum" id="spectrum" aria-labelledby="spec-h">
   <div class="wrap axis">
     <div class="side">
@@ -119,6 +154,120 @@
         <div><dt>Energy per mole</dt><dd id="o-m">246 kJ/mol</dd></div>
       </dl>
       <p class="verdict" id="verdict">Falling from n = 4 to n = 2 gives off a blue-green photon. Rising from 2 to 4 absorbs the same one.</p>
+    </div>
+  </div>
+</section>
+
+<section class="ink bench" id="tools" aria-labelledby="tools-h">
+  <div class="wrap">
+    <div class="bench-head">
+      <h2 id="tools-h">Chemistry tools</h2>
+      <p>Four checks for the parts of the module that are easiest to get wrong. Use them to confirm homework, not to skip it.</p>
+    </div>
+    <div class="tooltabs" role="tablist" aria-label="Choose a tool">
+      <button type="button" role="tab" id="tt-ec" aria-controls="tp-ec" aria-selected="true">Electron configuration</button>
+      <button type="button" role="tab" id="tt-qn" aria-controls="tp-qn" aria-selected="false" tabindex="-1">Quantum numbers</button>
+      <button type="button" role="tab" id="tt-pt" aria-controls="tp-pt" aria-selected="false" tabindex="-1">Periodic trends</button>
+      <button type="button" role="tab" id="tt-ph" aria-controls="tp-ph" aria-selected="false" tabindex="-1">Photons and particles</button>
+    </div>
+
+    <div class="tpanel" role="tabpanel" id="tp-ec" aria-labelledby="tt-ec">
+      <div class="axis">
+        <div class="side">
+          <form class="ctl" id="ec-form" novalidate>
+            <div class="fld"><label for="ec-el">Element</label><input id="ec-el" type="text" list="ec-list" autocomplete="off" spellcheck="false" value="Fe"><datalist id="ec-list"></datalist></div>
+            <div class="fld"><label for="ec-q">Charge</label><select id="ec-q"><option value="-3">3−</option><option value="-2">2−</option><option value="-1">1−</option><option value="0" selected>neutral</option><option value="1">1+</option><option value="2">2+</option><option value="3">3+</option></select></div>
+          </form>
+          <p class="hintline">Type a symbol, a name or an atomic number. Ions work too: cations lose electrons from the highest n first.</p>
+          <div class="try">
+            <h3>Try it yourself first</h3>
+            <label class="chk"><input type="checkbox" id="ec-hide"> Hide the answer until I check</label>
+            <div class="tryrow"><label class="vh" for="ec-guess">Your configuration</label><input id="ec-guess" type="text" autocomplete="off" spellcheck="false" placeholder="[Ar] 4s2 3d6"><button type="button" class="btn" id="ec-check">Check</button></div>
+            <p class="feedback" id="ec-fb" aria-live="polite"></p>
+            <button type="button" class="linkbtn" id="ec-rand">Give me a random element</button>
+          </div>
+        </div>
+        <div class="ec-out" id="ec-out" aria-live="polite">
+          <p class="ec-name" id="ec-name"></p>
+          <p class="ec-config" id="ec-config"></p>
+          <p class="ec-full" id="ec-full"></p>
+          <div class="boxes" id="ec-boxes"></div>
+          <dl class="mini" id="ec-facts"></dl>
+          <p class="note" id="ec-note"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tpanel" role="tabpanel" id="tp-qn" aria-labelledby="tt-qn" hidden>
+      <div class="axis">
+        <div class="side">
+          <form class="ctl" id="qn-form" novalidate>
+            <div class="fld"><label for="qn-n">n</label><select id="qn-n"></select></div>
+            <div class="fld"><label for="qn-l">l</label><select id="qn-l"></select></div>
+            <div class="fld"><label for="qn-ml">m<sub>l</sub></label><select id="qn-ml"></select></div>
+            <div class="fld"><label for="qn-ms">m<sub>s</sub></label><select id="qn-ms"><option value="0.5">+½</option><option value="-0.5">−½</option></select></div>
+          </form>
+          <p class="hintline">Every value is offered, including ones that break the rules, so you can test sets from a worksheet.</p>
+          <dl class="rules">
+            <div><dt>n</dt><dd>1, 2, 3 … the shell and its energy level</dd></div>
+            <div><dt>l</dt><dd>0 to n − 1: the subshell shape (s, p, d, f)</dd></div>
+            <div><dt>m<sub>l</sub></dt><dd>−l to +l: which orbital in the subshell</dd></div>
+            <div><dt>m<sub>s</sub></dt><dd>+½ or −½: the electron’s spin</dd></div>
+          </dl>
+        </div>
+        <div class="qn-out" aria-live="polite">
+          <p class="verdict-big" id="qn-v"></p>
+          <p class="qn-why" id="qn-why"></p>
+          <div class="qn-detail" id="qn-detail"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tpanel" role="tabpanel" id="tp-pt" aria-labelledby="tt-pt" hidden>
+      <div class="pt-top">
+        <div class="seg" id="pt-prop" role="group" aria-label="Property to show">
+          <button type="button" data-p="rad" aria-pressed="true">Atomic radius</button>
+          <button type="button" data-p="ie" aria-pressed="false">First ionization energy</button>
+          <button type="button" data-p="en" aria-pressed="false">Electronegativity</button>
+          <button type="button" data-p="ea" aria-pressed="false">Electron affinity</button>
+        </div>
+        <p class="hintline" id="pt-legend"></p>
+      </div>
+      <div class="pt-scroll"><div class="ptable" id="ptable" role="group" aria-label="Periodic table, elements 1 to 86"></div></div>
+      <p class="hintline pt-swipe">Swipe the table sideways to see all of it.</p>
+      <p class="hintline pt-pick">Pick one element to read its values, then a second to compare the two.</p>
+      <div class="pt-read" id="pt-read" aria-live="polite"></div>
+    </div>
+
+    <div class="tpanel" role="tabpanel" id="tp-ph" aria-labelledby="tt-ph" hidden>
+      <p class="hintline ph-intro">Numbers can be typed as 3.6e-19 or 3.6 × 10^-19. The constants match the equation sheet.</p>
+      <div class="calcs">
+        <form class="calc" id="pe-form" novalidate>
+          <h3>Photoelectric effect</h3>
+          <div class="fld"><label for="pe-wl">Light wavelength, nm</label><input id="pe-wl" type="text" inputmode="decimal" autocomplete="off" value="250"></div>
+          <div class="fld"><label for="pe-phi">Work function Φ</label><div class="pair"><input id="pe-phi" type="text" inputmode="decimal" autocomplete="off" value="7.21e-19"><select id="pe-u" aria-label="Work function unit"><option value="J">J</option><option value="eV">eV</option><option value="kJ">kJ/mol</option></select></div></div>
+          <dl class="mini" id="pe-out"></dl>
+          <p class="note" id="pe-note"></p>
+        </form>
+        <form class="calc" id="db-form" novalidate>
+          <h3>de Broglie wavelength</h3>
+          <div class="fld"><label for="db-m">Mass</label><div class="pair"><input id="db-m" type="text" inputmode="decimal" autocomplete="off" value="9.109e-31"><select id="db-u" aria-label="Mass unit"><option value="kg">kg</option><option value="g">g</option></select></div></div>
+          <div class="fld"><label for="db-v">Speed, m/s</label><input id="db-v" type="text" inputmode="decimal" autocomplete="off" value="2.2e6"></div>
+          <div class="presets"><button type="button" class="linkbtn" data-m="9.109e-31" data-u="kg" data-v="2.2e6">Electron</button><button type="button" class="linkbtn" data-m="1.673e-27" data-u="kg" data-v="1.0e4">Proton</button><button type="button" class="linkbtn" data-m="145" data-u="g" data-v="40">Baseball</button></div>
+          <dl class="mini" id="db-out"></dl>
+          <p class="note" id="db-note"></p>
+        </form>
+        <form class="calc" id="bl-form" novalidate>
+          <h3>Beer–Lambert, A = εbc</h3>
+          <p class="hintline">Leave one box empty and it is solved for.</p>
+          <div class="fld"><label for="bl-a">Absorbance A</label><input id="bl-a" type="text" inputmode="decimal" autocomplete="off" placeholder="solve for this" value=""></div>
+          <div class="fld"><label for="bl-e">ε, L/(mol·cm)</label><input id="bl-e" type="text" inputmode="decimal" autocomplete="off" placeholder="solve for this" value="12.5"></div>
+          <div class="fld"><label for="bl-b">Path b, cm</label><input id="bl-b" type="text" inputmode="decimal" autocomplete="off" placeholder="solve for this" value="1.00"></div>
+          <div class="fld"><label for="bl-c">Concentration c, mol/L</label><input id="bl-c" type="text" inputmode="decimal" autocomplete="off" placeholder="solve for this" value="0.040"></div>
+          <dl class="mini" id="bl-out"></dl>
+          <p class="note" id="bl-note"></p>
+        </form>
+      </div>
     </div>
   </div>
 </section>
@@ -187,6 +336,8 @@
     <div class="rows">
       <ul class="places">
         <li><a href="#days" id="foot-today">Today’s folder</a></li>
+        <li><a href="#flashcards">Flashcards</a></li>
+        <li><a href="#tools">Chemistry tools</a></li>
         <li><a href="#spectrum">Spectrum check</a></li>
         <li><a href="#equations">Equation sheet</a></li>
         <li><a href="#d1109">Exam review, 11/9</a></li>
@@ -213,5 +364,11 @@
 <script src="data/days/d1106.js"></script>
 <script src="data/days/d1109.js"></script>
 <script src="app.js"></script>
+<script src="data/cards.js"></script>
+<script src="data/elements.js"></script>
+<script src="flashcards.js"></script>
+<script src="tools.js"></script>
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
