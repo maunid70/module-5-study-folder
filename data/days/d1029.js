@@ -18,7 +18,7 @@ DAYS.push({
 });
 
 EXTRA.d1029 = {
-  overview: `No new videos (PSAT day). Finish Practice Problems through #22 and the Flame Test Lab. Make sure you can move between λ, ν, energy per photon and energy per mole without notes, and explain transitions with energy levels and Coulomb’s law.`,
+  overview: `Finish Practice Problems through #22 and the Flame Test Lab. Make sure you can move between λ, ν, energy per photon and energy per mole without notes, and explain transitions with energy levels and Coulomb’s law.`,
   vs: {},
   handouts: [
     ["What to check before moving on", `<p>Can you go from a wavelength to kJ/mol in three steps? Explain why an electron in n = 1 is harder to remove than one in n = 3 (closer means a stronger Coulomb attraction)? Say whether a transition absorbs or emits from the direction of the jump? Problems #21–22 add de Broglie wavelengths of an electron and a golf ball.</p>`]
