@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Module 5 Study Folder</title>
+<meta name="description" content="Honors Chemistry 2, Module 5: day-by-day study folders with summaries, key terms, worked problems and practice quizzes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap axis">
+    <a class="word" href="#top" id="top">Module 5</a>
+    <div class="top-right">
+      <nav class="top-links" aria-label="Sections">
+        <a href="#days">Study days</a>
+        <a href="#spectrum">Spectrum check</a>
+        <a href="#equations">Equation sheet</a>
+      </nav>
+      <a class="btn" href="#days" id="today-btn">Open today’s folder</a>
+    </div>
+  </div>
+</header>
+
+<div class="mosaic" aria-label="Pictures of the hydrogen atom">
+  <figure class="tile drift"><img src="img/orb-2p.webp" width="720" height="1080" alt="Electron density of hydrogen’s 2p orbital: two lobes above and below a dark nodal plane"></figure>
+  <figure class="tile c-mint"></figure>
+  <figure class="tile"><picture><source srcset="img/emit-poster.webp" media="(prefers-reduced-motion: reduce)"><img src="img/emit.webp" width="480" height="720" alt="Electron cloud of hydrogen in a 1s plus 2p mix, sloshing up and down"></picture></figure>
+  <figure class="tile drift"><img src="img/orb-3dz2.webp" width="720" height="1080" alt="Electron density of the 3d z-squared orbital: two lobes with a dark cone-shaped node"></figure>
+  <figure class="tile drift"><img src="img/orb-2s.webp" width="720" height="1080" alt="Electron density of hydrogen’s 2s orbital: a bright core inside a dark spherical node and a faint outer shell"></figure>
+  <figure class="tile drift"><img src="img/orb-3dxz.webp" width="720" height="1080" alt="Electron density of the 3d xz orbital: four lobes between two dark nodal planes"></figure>
+</div>
+
+<section class="title" aria-labelledby="h1">
+  <div class="wrap axis">
+    <div class="side"><p class="standfirst">Honors Chemistry 2, day by day: a summary of every video and handout, key terms, common mistakes, worked problems and a practice quiz for every class.</p></div>
+    <h1 id="h1"><span class="line"><span>Atomic structure</span></span><span class="line"><span>&amp; periodic trends</span></span></h1>
+  </div>
+</section>
+
+<section class="exam" aria-labelledby="exam-h">
+  <div class="wrap">
+    <div class="exam-top">
+      <h2 id="exam-h">Exam on Tuesday 11/10</h2>
+      <p>It covers every folder below, from the flame test to photoelectron spectra. Work one folder a day and take its quiz.</p>
+    </div>
+    <dl class="facts">
+      <div data-rise><dt id="days-left">14 days</dt><dd id="days-left-note">until the Module 5 exam</dd></div>
+      <div data-rise><dt>22</dt><dd>multiple choice questions</dd></div>
+      <div data-rise><dt>7</dt><dd>free response questions</dd></div>
+      <div data-rise><dt id="qcount">85</dt><dd>practice questions in this guide</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="statement" aria-labelledby="st-h">
+  <div class="wrap">
+    <h2 id="st-h" class="vh">What the module covers</h2>
+    <p data-rise>Light arrives in packets <span class="slot"><img src="img/orb-1s.webp" alt="1s orbital" width="720" height="1080"></span> and every element gives off its own lines <span class="slot"><img src="img/balmer.webp" alt="Hydrogen’s four visible emission lines" width="1600" height="500"></span>. Electrons fill orbitals <span class="slot"><img src="img/orb-3p.webp" alt="3p orbital" width="720" height="1080"></span>, and the order they fill in explains every periodic trend.</p>
+  </div>
+</section>
+
+<section class="days" id="days" aria-labelledby="days-h">
+  <div class="wrap">
+    <div class="days-head">
+      <h2 id="days-h"><span class="soft">Study folders,</span> one per class day</h2>
+      <a class="tlink" href="#quiz">Go to this day’s quiz</a>
+    </div>
+    <div class="days-body">
+      <nav class="tabs" id="tabs" aria-label="Choose a day"></nav>
+      <div class="day-panel" id="panel" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section class="reading" id="reading" aria-labelledby="reading-h">
+  <div class="wrap axis">
+    <div class="side" id="side"></div>
+    <div class="read-main"><h2 id="reading-h">Summary</h2><div class="sum" id="sum"></div></div>
+  </div>
+</section>
+
+<section class="ink quiz" id="quiz" aria-labelledby="quiz-h">
+  <div class="wrap axis">
+    <div class="side">
+      <h2 id="quiz-h">Practice quiz</h2>
+      <p class="score" id="score" aria-live="polite"></p>
+      <button type="button" class="reset" id="reset">Reset this quiz</button>
+    </div>
+    <div><ol class="qs" id="qs"></ol><div class="pager" id="pager"></div></div>
+  </div>
+</section>
+
+<section class="mint spectrum" id="spectrum" aria-labelledby="spec-h">
+  <div class="wrap axis">
+    <div class="side">
+      <h2 id="spec-h">Check a hydrogen line</h2>
+      <p>Pick a transition or type a wavelength. The numbers use the constants from your equation sheet, so you can check homework answers step by step.</p>
+    </div>
+    <div>
+      <form class="controls" id="specform" novalidate>
+        <div class="field"><label for="nhi">From n =</label>
+          <select id="nhi"><option>2</option><option>3</option><option selected>4</option><option>5</option><option>6</option><option>7</option></select></div>
+        <div class="field"><label for="nlo">to n =</label>
+          <select id="nlo"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
+        <p class="or">or</p>
+        <div class="field"><label for="wl">Wavelength, nm</label>
+          <input id="wl" type="text" inputmode="decimal" autocomplete="off" placeholder="650"></div>
+      </form>
+      <div class="strip" aria-hidden="true"><img src="img/balmer.webp" alt="" width="1600" height="500"><span class="marker" id="marker"></span></div>
+      <div class="scale" aria-hidden="true"><span>380 nm, violet</span><span>550</span><span>720 nm, red</span></div>
+      <dl class="readout" aria-live="polite">
+        <div><dt>Wavelength</dt><dd id="o-wl">486 nm</dd></div>
+        <div><dt>Frequency</dt><dd id="o-nu">6.17 × 10<sup>14</sup> Hz</dd></div>
+        <div><dt>Energy per photon</dt><dd id="o-e">4.09 × 10<sup>−19</sup> J</dd></div>
+        <div><dt>Energy per mole</dt><dd id="o-m">246 kJ/mol</dd></div>
+      </dl>
+      <p class="verdict" id="verdict">Falling from n = 4 to n = 2 gives off a blue-green photon. Rising from 2 to 4 absorbs the same one.</p>
+    </div>
+  </div>
+</section>
+
+<section class="eqs" id="equations" aria-labelledby="eq-h">
+  <div class="wrap axis">
+    <div class="side">
+      <h2 id="eq-h">Equation sheet</h2>
+      <p>Constants are given on quizzes and tests. Know what each variable means and which equation links the two quantities you have.</p>
+    </div>
+    <dl class="eqlist">
+      <div><dt>c = λν</dt><dd>Speed of light = wavelength × frequency. λ in meters, ν in s<sup>−1</sup> (Hz).</dd></div>
+      <div><dt>E = hν = hc/λ</dt><dd>Energy of one photon, in joules.</dd></div>
+      <div><dt>E<sub>n</sub> = −2.178 × 10<sup>−18</sup> J (Z<sup>2</sup>/n<sup>2</sup>)</dt><dd>Bohr energy level. One-electron species only (H, He<sup>+</sup>, Li<sup>2+</sup>). Z = nuclear charge.</dd></div>
+      <div><dt>ΔE = E<sub>final</sub> − E<sub>initial</sub></dt><dd>Negative ΔE: photon emitted (electron falls). Positive: photon absorbed.</dd></div>
+      <div><dt>1/λ = R(1/n<sub>low</sub><sup>2</sup> − 1/n<sub>high</sub><sup>2</sup>)</dt><dd>Balmer–Rydberg equation for hydrogen. R = 1.097 × 10<sup>7</sup> m<sup>−1</sup>.</dd></div>
+      <div><dt>KE = E<sub>photon</sub> − Φ</dt><dd>Photoelectric effect. Φ is the work function (minimum energy to free an electron). KE = ½mv<sup>2</sup>.</dd></div>
+      <div><dt>λ = h/mv</dt><dd>de Broglie wavelength of a moving particle. m in kg, v in m/s.</dd></div>
+      <div><dt>Δx · Δp ≥ h/4π</dt><dd>Heisenberg uncertainty principle. p = mv.</dd></div>
+      <div><dt>A = εbc</dt><dd>Beer–Lambert law. ε in L/(mol·cm), b = path length in cm, c in mol/L.</dd></div>
+      <div><dt>A = −log T</dt><dd>Absorbance from transmittance (T as a fraction). The colorimeter in the penny lab reads A directly.</dd></div>
+      <div><dt>M<sub>1</sub>V<sub>1</sub> = M<sub>2</sub>V<sub>2</sub></dt><dd>Dilution: the concentration of each penny-lab standard.</dd></div>
+      <div><dt>Z<sub>eff</sub> ≈ Z − S</dt><dd>Effective nuclear charge. S = number of core (shielding) electrons.</dd></div>
+      <div><dt>F ∝ q<sub>1</sub>q<sub>2</sub>/r<sup>2</sup></dt><dd>Coulomb’s law. Bigger charges or smaller distance mean a stronger attraction.</dd></div>
+      <div><dt>c = 2.998 × 10<sup>8</sup> m/s</dt><dd>Speed of light.</dd></div>
+      <div><dt>h = 6.626 × 10<sup>−34</sup> J·s</dt><dd>Planck’s constant.</dd></div>
+      <div><dt>N<sub>A</sub> = 6.022 × 10<sup>23</sup> mol<sup>−1</sup></dt><dd>Per photon × N<sub>A</sub> = per mole. Divide by 1000 for kJ/mol.</dd></div>
+      <div><dt>1 nm = 10<sup>−9</sup> m</dt><dd>Visible light is about 400 nm (violet) to 700 nm (red).</dd></div>
+    </dl>
+  </div>
+  <div class="wrap trends-wrap">
+    <h3>Trends at a glance</h3>
+    <div class="tscroll">
+      <table class="trends">
+        <thead><tr><th scope="col">Property</th><th scope="col">Across a period (→)</th><th scope="col">Down a group (↓)</th><th scope="col">Why</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Atomic radius</th><td data-l="Across a period">Decreases</td><td data-l="Down a group">Increases</td><td data-l="Why">Across: more protons, same core shielding, so higher Z<sub>eff</sub> pulls the shell in. Down: a new shell farther out.</td></tr>
+          <tr><th scope="row">First ionization energy</th><td data-l="Across a period">Increases (dips at B and O)</td><td data-l="Down a group">Decreases</td><td data-l="Why">Higher Z<sub>eff</sub> and smaller r mean a stronger Coulomb attraction to the electron removed.</td></tr>
+          <tr><th scope="row">Electron affinity</th><td data-l="Across a period">Generally more energy released (exceptions: Be, N, noble gases)</td><td data-l="Down a group">No clean trend</td><td data-l="Why">A higher Z<sub>eff</sub> attracts the added electron more strongly.</td></tr>
+          <tr><th scope="row">Electronegativity</th><td data-l="Across a period">Increases</td><td data-l="Down a group">Decreases</td><td data-l="Why">Same reasoning as ionization energy, for electrons shared in a bond. F is highest.</td></tr>
+          <tr><th scope="row">Metallic character</th><td data-l="Across a period">Decreases</td><td data-l="Down a group">Increases</td><td data-l="Why">Low ionization energy means electrons are given up or shared easily.</td></tr>
+          <tr><th scope="row">Ion size</th><td colspan="2" data-l="Across and down">Cation smaller than its atom; anion larger. Isoelectronic ions: more protons, smaller ion.</td><td data-l="Why">Fewer electrons per proton (or a lost shell) pulls the cloud in.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about" aria-labelledby="about-h">
+  <div class="wrap axis">
+    <div class="side"><h2 id="about-h">About this guide</h2></div>
+    <div class="runin">
+      <p data-rise><b>Where does this come from?</b> The Module 5 calendar page on Canvas, the transcripts of its linked videos, and the Canvas handouts. The day order follows the calendar exactly.</p>
+      <p data-rise><b>Which videos had no transcript?</b> 14.a “Paramagnetism and Diamagnetism of N<sub>2</sub> and O<sub>2</sub>” and “Preparing Penny Solution”. Their notes come from the video titles and general chemistry knowledge.</p>
+      <p data-rise><b>Which handouts were used?</b> Module 5 Goals, Reading Notes, Practice Problems and their key, both slide decks, the Flame Test Lab and its makeup sheet, the Copper Penny Lab, the PES worksheet, the Additional PES Questions key, and the Module 5 Review and its key. Only the Atomic Can Game could not be opened.</p>
+      <p data-rise><b>How should I check my answers?</b> Each folder ends with worked problems from the handouts; tap one to see the answer. The full keys are on the Canvas Resources page. The spectrum check above confirms any hydrogen-line calculation.</p>
+      <p data-rise><b>Why is one folder marked skipped?</b> The calendar skips the Quantum Numbers row. Its objective can still show up on the exam, so its summary and quiz are kept.</p>
+      <p data-rise><b>Does the guide remember my answers?</b> No. Each quiz starts fresh when you open a folder; use Reset to try one again.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="foot" aria-labelledby="foot-h">
+  <div class="wrap">
+    <h2 class="name" id="foot-h">Module 5</h2>
+    <div class="rows">
+      <ul class="places">
+        <li><a href="#days" id="foot-today">Today’s folder</a></li>
+        <li><a href="#spectrum">Spectrum check</a></li>
+        <li><a href="#equations">Equation sheet</a></li>
+        <li><a href="#d1109">Exam review, 11/9</a></li>
+      </ul>
+      <ul class="daylinks" id="daylinks"></ul>
+    </div>
+    <div class="legal">
+      <span>Honors Chemistry 2 study guide. Orbital pictures are electron densities computed from the hydrogen wavefunction; the spectrum is drawn from the Rydberg equation.</span>
+      <a href="#top">Back to top</a>
+    </div>
+  </div>
+</footer>
+
+<script src="data/videos.js"></script>
+<script src="data/days/d1026.js"></script>
+<script src="data/days/d1027.js"></script>
+<script src="data/days/d1028.js"></script>
+<script src="data/days/d1029.js"></script>
+<script src="data/days/dqn.js"></script>
+<script src="data/days/d1030.js"></script>
+<script src="data/days/d1102.js"></script>
+<script src="data/days/d1103.js"></script>
+<script src="data/days/d1105.js"></script>
+<script src="data/days/d1106.js"></script>
+<script src="data/days/d1109.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
