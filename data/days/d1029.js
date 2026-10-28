@@ -1,7 +1,7 @@
 // d1029: edit this day's goals, summary, key terms, mistakes, quiz and handout notes here.
 DAYS.push({
   id: "d1029", tab: "10/29", title: "Bohr Model & Wave Behavior, Day 2",
-  goals: ["PSAT Day.", "I can explain the distribution of electrons in an atom or ion based upon data.", "I can relate the attraction of electrons to the atomic nucleus as the basis of atomic structure."],
+  goals: ["I can explain the distribution of electrons in an atom or ion based upon data.", "I can relate the attraction of electrons to the atomic nucleus as the basis of atomic structure."],
   videos: [],
   summary: `<p>No new videos on the calendar. This is a catch-up day: finish Practice Problems through #22 and the Flame Test Lab. Use it to make sure you can move between λ, ν, E per photon and E per mole without help, and that you can explain transitions with energy levels.</p>
   <p><strong>Check yourself:</strong> Can you go from a wavelength to kJ/mol in three steps? Can you explain why an electron in n = 1 is harder to remove than one in n = 3 using Coulomb’s law (closer means a stronger attraction)? Can you say whether a transition absorbs or emits light from the direction of the jump?</p>`,
