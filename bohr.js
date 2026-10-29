@@ -155,7 +155,10 @@
   }
 
   /* ---------- Orbit loop ---------- */
+  let paused = false;
+  el("bohr-pause").addEventListener("click", () => { paused = !paused; el("bohr-pause").setAttribute("aria-pressed", paused); el("bohr-pause").textContent = paused ? "Resume motion" : "Pause motion"; });
   function frame() {
+    if (paused) { requestAnimationFrame(frame); return; }
     if (!busy) { angle += 0.018 / (n * n) * 6; placeE(RAD[n]); }
     phase += 3; drawWave();
     requestAnimationFrame(frame);

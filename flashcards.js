@@ -34,7 +34,7 @@
     card.hidden = done;
     el("fc-yes").disabled = done; el("fc-no").disabled = done;
     const n = deck.cards.length;
-    el("fc-bar").style.width = (known.size / n * 100) + "%";
+    el("fc-bar").style.setProperty("--p", known.size / n);
     el("fc-count").textContent = done ? `${n} of ${n} known` : `${known.size} of ${n} known · ${queue.length} left in the pile`;
     if (done) {
       document.dispatchEvent(new CustomEvent("deckdone", { detail: deck.id }));

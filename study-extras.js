@@ -153,7 +153,14 @@
     if (li.closest("#rv-qs")) el("rv-score").textContent = li.dataset.picked === li.dataset.a ? `Got it. ${ids.length} left to review.` : `${ids.length} to review.`;
     progressLine();
   });
-  el("rv-clear").addEventListener("click", () => { store.set("missed", []); renderReview(); progressLine(); });
+  let undo = null, undoT = null;
+  el("rv-clear").addEventListener("click", () => {
+    const btn = el("rv-clear");
+    if (undo) { store.set("missed", undo); undo = null; clearTimeout(undoT); btn.textContent = "Clear the list"; renderReview(); progressLine(); return; }
+    undo = store.get("missed"); store.set("missed", []); renderReview(); progressLine();
+    btn.hidden = false; btn.textContent = "Cleared. Undo";
+    undoT = setTimeout(() => { undo = null; btn.textContent = "Clear the list"; renderReview(); }, 6000);
+  });
   window.addEventListener("hashchange", () => { if (document.body.dataset.page === "practice") renderReview(); });
   renderReview();
 

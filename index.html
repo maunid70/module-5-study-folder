@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#171717" media="(prefers-color-scheme: dark)">
 <title>Module 5 Study Folder</title>
 <meta name="description" content="Honors Chemistry 2, Module 5: day-by-day study folders with summaries, key terms, worked problems and practice quizzes.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,6 +13,7 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<a class="skip" href="#days">Skip to today’s folder</a>
 <header class="top">
   <div class="wrap axis">
     <a class="word" href="#home" id="top">Module 5</a>
@@ -161,7 +164,7 @@
       <div class="dr-q" id="dr-q"></div>
       <form class="dr-row" id="dr-form" novalidate>
         <label class="vh" for="dr-in">Your answer</label>
-        <input id="dr-in" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="e.g. 4.58e-19">
+        <input id="dr-in" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="4.58e-19…">
         <span class="dr-unit" id="dr-unit"></span>
         <button type="submit" class="btn">Check</button>
       </form>
@@ -180,7 +183,7 @@
     </div>
     <div>
       <label class="vh" for="se-in">Search the study guide</label>
-      <input class="se-in" id="se-in" type="search" autocomplete="off" spellcheck="false" placeholder="Try “Hund”, “work function” or “Zeff”">
+      <input class="se-in" id="se-in" type="search" autocomplete="off" spellcheck="false" placeholder="Try “Hund”, “work function” or “Zeff”…">
       <p class="se-count" id="se-count" aria-live="polite"></p>
       <ol class="se-res" id="se-res"></ol>
     </div>
@@ -204,6 +207,7 @@
         <button type="button" data-jump="5,3">5 → 3, infrared</button>
         <button type="button" data-jump="1,3">1 → 3, absorb</button>
       </div>
+      <button type="button" class="bohr-pause" id="bohr-pause" aria-pressed="false">Pause motion</button>
     </div>
     <p class="bohr-sum" id="bohr-sum" aria-live="polite"></p>
     <div class="bohr-grid">
@@ -321,7 +325,7 @@
           <div class="try">
             <h3>Try it yourself first</h3>
             <label class="chk"><input type="checkbox" id="ec-hide"> Hide the answer until I check</label>
-            <div class="tryrow"><label class="vh" for="ec-guess">Your configuration</label><input id="ec-guess" type="text" autocomplete="off" spellcheck="false" placeholder="[Ar] 4s2 3d6"><button type="button" class="btn" id="ec-check">Check</button></div>
+            <div class="tryrow"><label class="vh" for="ec-guess">Your configuration</label><input id="ec-guess" type="text" autocomplete="off" spellcheck="false" placeholder="[Ar] 4s2 3d6…"><button type="button" class="btn" id="ec-check">Check</button></div>
             <p class="feedback" id="ec-fb" aria-live="polite"></p>
             <button type="button" class="linkbtn" id="ec-rand">Give me a random element</button>
           </div>

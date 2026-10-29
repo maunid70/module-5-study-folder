@@ -195,7 +195,7 @@ function render(nm, note, bad) {
   $("o-e").innerHTML = sci(E, "J");
   $("o-m").textContent = (mol >= 100 ? Math.round(mol).toLocaleString("en-US") : mol.toPrecision(3)) + " kJ/mol";
   const pos = Math.min(Math.max((nm - 380) / (720 - 380), 0), 1);
-  $("marker").style.left = (pos * 100) + "%";
+  $("marker").style.setProperty("--p", pos);
   v.textContent = note;
 }
 function fromLevels() {

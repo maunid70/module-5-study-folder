@@ -862,3 +862,47 @@ body[data-sub="terms"] .side h3 { font-family: var(--display); font-size: var(--
 .theme-btn { width: 44px; height: 44px; flex: 0 0 44px; border: 2px solid var(--ink); border-radius: 50%; background: transparent; cursor: pointer; display: grid; place-items: center; }
 .theme-btn span { width: 18px; height: 18px; border-radius: 50%; background: linear-gradient(90deg, var(--ink) 50%, transparent 50%); border: 2px solid var(--ink); }
 .theme-btn:hover { background: var(--surface); }
+
+/* Motion and interaction polish (emil-design-eng, review-animations, web-design-guidelines) */
+:root { --ease-io: cubic-bezier(.77, 0, .175, 1); }
+button, a, .opt, .pe { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+select { background-color: transparent; color: inherit; }
+select option { background: var(--bg); color: var(--ink); }
+.skip { position: absolute; left: 12px; top: -60px; z-index: 50; background: var(--accent); color: var(--accent-ink); padding: 10px 16px; font-weight: 600; text-decoration: none; transition: transform 160ms var(--ease); }
+.skip:focus { transform: translateY(72px); }
+
+/* Hover: colour only, and only for real pointers */
+.btn:hover, .tabs a:hover, .opt:hover:not(:disabled), .pe:hover { transform: none; }
+@media (hover: hover) and (pointer: fine) {
+  .opt:hover:not(:disabled) { background: #474747; }
+  .pe:hover { transform: scale(1.06); }
+  .tabs a:hover { background: var(--surface-2); }
+}
+@media not ((hover: hover) and (pointer: fine)) { .opt:hover:not(:disabled) { background: var(--field-surface); } .tabs a:hover { background: var(--surface); } }
+
+/* Press feedback everywhere */
+.btn, .act, .tm-btn, .bohr-presets button, .subtabs button, .tooltabs button, .seg button, .theme-btn, .donebtn, .opt, .eq-go, .linkbtn, .pe {
+  transition: transform 160ms var(--ease), background-color 150ms ease, color 150ms ease, opacity 150ms ease;
+}
+.btn:active, .act:active:not(:disabled), .tm-btn:active, .bohr-presets button:active, .subtabs button:active, .tooltabs button:active,
+.seg button:active, .theme-btn:active, .donebtn:active, .opt:active:not(:disabled), .eq-go:active, .linkbtn:active { transform: scale(.97); }
+
+/* Frequent transitions: shorter and smaller */
+@keyframes up-sm { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.swap .sum > *, .swap .qs > li { animation: none; }
+.swap .bands li, .swap .day-panel > * { animation: up-sm 200ms var(--ease) both; }
+.swap .bands li:nth-child(2) { animation-delay: 40ms; } .swap .bands li:nth-child(3) { animation-delay: 80ms; } .swap .bands li:nth-child(n+4) { animation-delay: 120ms; }
+.explain, .sum details.wp[open] .wp-a, .fr .fa { animation: up-sm 200ms var(--ease) both; }
+.card .face { transition: transform 450ms var(--ease-io); }
+.card.next { animation: up-sm 220ms var(--ease) both; }
+.fc-bar span { width: 100% !important; transform: scaleX(var(--p, 0)); transform-origin: left; transition: transform 300ms var(--ease); }
+.strip { container-type: inline-size; }
+.marker { left: 0 !important; transform: translateX(calc(var(--p, 0) * 100cqw)); transition: transform 300ms var(--ease); }
+.eq-step { transition: opacity 250ms ease; }
+.shown { transition: opacity .5s var(--ease), transform .5s var(--ease); }
+.tile.drift img { animation-iteration-count: 2; }
+@media (prefers-reduced-motion: reduce) {
+  .explain, .fr .fa, .sum details.wp[open] .wp-a { animation: fade-sm 150ms ease both !important; }
+}
+@keyframes fade-sm { from { opacity: 0; } to { opacity: 1; } }
+.bohr-pause { min-height: 40px; padding: 6px 14px; border: 2px solid var(--field-muted); background: transparent; color: var(--field-ink); font: 600 var(--step-small)/1.2 var(--text); cursor: pointer; border-radius: 0; }
