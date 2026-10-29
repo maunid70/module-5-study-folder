@@ -393,4 +393,37 @@
   document.querySelectorAll("#db-form .presets button").forEach(b => b.addEventListener("click", () => {
     el("db-m").value = b.dataset.m; el("db-u").value = b.dataset.u; el("db-v").value = b.dataset.v; dbRender();
   }));
+
+  /* ---------- PES spectrum ---------- */
+  let pesHidden = false, pesZ = 0;
+  function pesRender() {
+    const e = el("pes-el").value.trim() ? findEl(el("pes-el").value) : pesZ ? ELEMENTS[pesZ - 1] : null;
+    const name = el("pes-name"), chart = el("pes-chart"), list = el("pes-list");
+    if (!e || e.z > 36) { name.textContent = "Type an element from 1 (H) to 36 (Kr)."; chart.innerHTML = ""; list.innerHTML = ""; return; }
+    const peaks = PES[e.z], W = 800, H = 300, L = 40, R = 20, T = 34, B = 44;
+    const es = peaks.map(p => p[2]), hi = Math.log10(Math.max(...es) * 2), lo = Math.log10(Math.min(...es) / 2);
+    const x = v => L + (hi - Math.log10(v)) / (hi - lo) * (W - L - R);
+    const maxN = Math.max(...peaks.map(p => p[1]), 2), y = n => T + (1 - n / maxN) * (H - T - B);
+    let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Photoelectron spectrum with ${peaks.length} peaks"><defs><pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="3" height="6" fill="var(--accent)"/></pattern></defs>`;
+    svg += `<line x1="${L}" x2="${W - R}" y1="${H - B}" y2="${H - B}" class="ax"/>`;
+    for (let p = Math.ceil(lo); p <= Math.floor(hi); p++) {
+      const v = Math.pow(10, p), xx = x(v);
+      svg += `<line x1="${xx}" x2="${xx}" y1="${H - B}" y2="${H - B + 6}" class="ax"/><text x="${xx}" y="${H - B + 22}" class="tk">${v >= 1 ? v : v.toFixed(Math.abs(p))}</text>`;
+    }
+    svg += `<text x="${(W + L - R) / 2}" y="${H - 4}" class="tk">Binding energy, MJ/mol (log scale) — higher to the left</text>`;
+    peaks.forEach(p => {
+      const xx = x(p[2]), yy = y(p[1]);
+      svg += `<rect x="${xx - 7}" y="${yy}" width="14" height="${H - B - yy}" fill="${p[3] ? "url(#hatch)" : "var(--accent)"}"/><text x="${xx}" y="${yy - 8}" class="pk">${p[0]}</text>`;
+    });
+    chart.innerHTML = svg + "</svg>";
+    name.textContent = pesHidden ? "Which element is this? Count the electrons and read the subshells." : `${e.name} · Z = ${e.z} · ${peaks.reduce((a, p) => a + p[1], 0)} electrons`;
+    list.innerHTML = peaks.map(p => `<li><b>${p[0]}</b> ${p[1]} electron${p[1] > 1 ? "s" : ""} at ${p[2] >= 10 ? Math.round(p[2] * 10) / 10 : p[2].toFixed(2)} MJ/mol${p[3] ? " (estimate)" : ""}</li>`).join("") +
+      (pesHidden ? `<li><button type="button" class="linkbtn" id="pes-reveal">Show the answer</button></li>` : "");
+  }
+  el("pes-el").addEventListener("input", () => { pesHidden = el("pes-hide").checked; pesRender(); });
+  el("pes-hide").addEventListener("change", () => { pesHidden = el("pes-hide").checked; pesRender(); });
+  el("pes-form").addEventListener("submit", e => e.preventDefault());
+  el("pes-rand").addEventListener("click", () => { pesZ = 1 + Math.floor(Math.random() * 36); el("pes-el").value = ""; el("pes-el").placeholder = "?"; el("pes-hide").checked = true; pesHidden = true; pesRender(); });
+  el("pes-list").addEventListener("click", e => { if (e.target.id === "pes-reveal") { if (!el("pes-el").value.trim() && pesZ) el("pes-el").value = ELEMENTS[pesZ - 1].s; pesHidden = false; el("pes-hide").checked = false; pesRender(); } });
+  pesRender();
 })();

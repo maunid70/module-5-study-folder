@@ -78,13 +78,14 @@ function show(id, opts = {}) {
   $("panel").innerHTML = `<h3>${d.title}</h3><p class="day-when">${when}</p>
     <ul class="goals">${d.goals.map(g => `<li>${g}</li>`).join("")}</ul>
     ${videoBands(d.videos)}
-    <p class="canvas-line"><b>On Canvas:</b> ${d.todo}</p>`;
+    <p class="canvas-line"><b>On Canvas:</b> ${d.todo}</p>
+    <button type="button" class="donebtn" data-day="${id}"></button>`;
   $("reading-h").textContent = d.skipped ? "Summary: quantum numbers" : `Summary for ${m[1]}`;
   $("sum").innerHTML = renderSum(d);
   $("side").innerHTML = `<section><h3>Key terms</h3><dl class="terms">${d.terms.concat((EXTRA[d.id]||{}).terms||[]).map(t => `<div><dt>${t[0]}</dt><dd>${t[1]}</dd></div>`).join("")}</dl></section>
     <section><h3>Common mistakes</h3><ul class="mistakes">${d.mistakes.concat((EXTRA[d.id]||{}).mistakes||[]).map(x => `<li>${x}</li>`).join("")}</ul></section>`;
   $("quiz-h").textContent = d.skipped ? "Practice quiz: quantum numbers" : `Practice quiz for ${m[1]}`;
-  $("qs").innerHTML = d.quiz.map((q, qi) => `<li data-a="${q[2]}"><p class="q">${q[0]}</p>
+  $("qs").innerHTML = d.quiz.map((q, qi) => `<li data-a="${q[2]}" data-qid="${d.id}:${qi}"><p class="q">${q[0]}</p>
       <div class="opts" role="group" aria-label="Answer choices for question ${qi + 1}">${q[1].map((o, oi) =>
         `<button type="button" class="opt" id="${d.id}-q${qi}-o${oi}" data-i="${oi}"><span class="l">${LET[oi]}</span><span>${o}</span></button>`).join("")}</div>
       <p class="explain" hidden><b></b> ${q[3]}</p></li>`).join("");
@@ -92,6 +93,7 @@ function show(id, opts = {}) {
   $("pager").innerHTML = (prev ? `<a href="#${prev.id}">← ${META[prev.id][2] ? META[prev.id][1] : "Quantum numbers"}: ${prev.title}</a>` : "<span></span>") +
     (next ? `<a href="#${next.id}">${META[next.id][2] ? META[next.id][1] : "Quantum numbers"}: ${next.title} →</a>` : "");
   updateScore();
+  document.dispatchEvent(new CustomEvent("dayshown", { detail: id }));
   if (opts.animate) {
     for (const el of [$("days"), $("reading"), $("quiz")]) { el.classList.remove("swap"); void el.offsetWidth; el.classList.add("swap"); }
   }
@@ -146,7 +148,7 @@ document.addEventListener("click", e => {
 /* Hash routing: #d1027 opens that folder */
 /* Pages: one section group shows at a time, picked by the hash */
 const PAGE_OF = { home: "home", top: "home", about: "home", days: "days", reading: "days", quiz: "days",
-  practice: "practice", "practice-fr": "practice", flashcards: "flashcards", tools: "tools", spectrum: "tools", equations: "equations" };
+  practice: "practice", "practice-fr": "practice", drills: "drills", review: "practice", search: "search", flashcards: "flashcards", tools: "tools", spectrum: "tools", equations: "equations" };
 function setPage(h) {
   const p = META[h] ? "days" : PAGE_OF[h] || "home";
   const changed = document.body.dataset.page !== p;

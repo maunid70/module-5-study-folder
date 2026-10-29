@@ -7,7 +7,7 @@
   function render() {
     el("px-qs").innerHTML = PRACTICE.mc.map((q, qi) => {
       const order = shuffle([0, 1, 2, 3]);
-      return `<li data-a="${order.indexOf(q[2])}" data-topic="${q[4]}"><p class="q"><span class="topic">${q[4]}</span>${q[0]}</p>
+      return `<li data-a="${order.indexOf(q[2])}" data-topic="${q[4]}" data-qid="px:${qi}"><p class="q"><span class="topic">${q[4]}</span>${q[0]}</p>
         <div class="opts" role="group" aria-label="Answer choices for question ${qi + 1}">${order.map((oi, k) =>
           `<button type="button" class="opt" data-i="${k}"><span class="l">${LET[k]}</span><span>${q[1][oi]}</span></button>`).join("")}</div>
         <p class="explain" hidden><b></b> ${q[3]}</p></li>`;

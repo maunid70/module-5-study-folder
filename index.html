@@ -18,10 +18,11 @@
       <nav class="top-links" aria-label="Sections">
         <a href="#days">Study days</a>
         <a href="#practice">Practice test</a>
+        <a href="#drills">Drills</a>
         <a href="#flashcards">Flashcards</a>
         <a href="#tools">Tools</a>
-        <a href="#spectrum">Spectrum</a>
         <a href="#equations">Equations</a>
+        <a href="#search">Search</a>
       </nav>
       <a class="btn" href="#days" id="today-btn">Open today’s folder</a>
     </div>
@@ -49,6 +50,7 @@
     <div class="exam-top">
       <h2 id="exam-h">Exam on Tuesday 11/10</h2>
       <p>It covers every folder below, from the flame test to photoelectron spectra. Work one folder a day and take its quiz, then <a class="tlink" href="#practice">take the full practice test</a>.</p>
+      <p class="progress-line" id="progress-line"></p>
     </div>
     <dl class="facts">
       <div data-rise><dt id="days-left">14 days</dt><dd id="days-left-note">until the Module 5 exam</dd></div>
@@ -103,6 +105,12 @@
       <h2 id="px-h">Practice test</h2>
       <p class="px-intro">Shaped like the real exam: 22 multiple choice, then 7 free response. Every question is new, none repeated from the daily quizzes. Try it without notes, then check the free response against the model answers.</p>
       <p class="score" id="px-score" aria-live="polite"></p>
+      <div class="timer" id="timer">
+        <div class="fld"><label for="tm-min">Timer</label><select id="tm-min"><option value="0">Off</option><option>40</option><option>45</option><option selected>50</option><option>55</option><option>60</option><option>90</option></select></div>
+        <p class="tm-clock" id="tm-clock" aria-live="off">50:00</p>
+        <button type="button" class="tm-btn" id="tm-go">Start</button>
+      </div>
+      <p class="tm-note">Set it to your class period length.</p>
       <button type="button" class="reset" id="px-reset">Start over with the choices reshuffled</button>
       <p class="px-jump"><a href="#practice-fr">Skip to the free response</a></p>
     </div>
@@ -117,6 +125,57 @@
       <p>Work each one on paper first, showing units, then open the model answer. On the real exam the reasoning earns as many points as the number.</p>
     </div>
     <div class="frs" id="px-fr"></div>
+  </div>
+</section>
+
+<section class="ink quiz review" data-page="practice" id="review" aria-labelledby="rv-h">
+  <div class="wrap axis">
+    <div class="side">
+      <h2 id="rv-h">Questions you missed</h2>
+      <p class="px-intro">Every quiz or practice-test question you get wrong lands here, even after you close the page. Answer one correctly and it leaves the list.</p>
+      <p class="score" id="rv-score" aria-live="polite"></p>
+      <button type="button" class="reset" id="rv-clear">Clear the list</button>
+    </div>
+    <div><ol class="qs" id="rv-qs"></ol><p class="rv-empty" id="rv-empty" hidden>Nothing to review yet. Missed questions from any daily quiz or the practice test will show up here.</p></div>
+  </div>
+</section>
+
+<section class="drills" data-page="drills" id="drills" aria-labelledby="dr-h">
+  <div class="wrap axis">
+    <div class="side">
+      <h2 id="dr-h">Calculation drills</h2>
+      <p>New numbers every time, for every calculation type in the module. Type your answer in the unit shown; it is checked to within 2%, the way rounding works on the exam. Wrong answers show the full working.</p>
+      <div class="fld dr-pick"><label for="dr-type">Problem type</label><select id="dr-type"></select></div>
+      <p class="dr-stats" id="dr-stats" aria-live="polite"></p>
+    </div>
+    <div class="dr-main">
+      <p class="dr-topic" id="dr-topic"></p>
+      <div class="dr-q" id="dr-q"></div>
+      <form class="dr-row" id="dr-form" novalidate>
+        <label class="vh" for="dr-in">Your answer</label>
+        <input id="dr-in" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="e.g. 4.58e-19">
+        <span class="dr-unit" id="dr-unit"></span>
+        <button type="submit" class="btn">Check</button>
+      </form>
+      <p class="dr-fb" id="dr-fb" aria-live="polite"></p>
+      <div class="dr-steps" id="dr-steps" hidden></div>
+      <div class="dr-links"><button type="button" class="linkbtn" id="dr-next">New problem</button><button type="button" class="linkbtn" id="dr-show">Show the working</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="searchpg" data-page="search" id="search" aria-labelledby="se-h">
+  <div class="wrap axis">
+    <div class="side">
+      <h2 id="se-h">Search</h2>
+      <p>Searches every folder’s summary, key terms, mistakes and quiz, plus the practice test, flashcards and equation sheet.</p>
+    </div>
+    <div>
+      <label class="vh" for="se-in">Search the study guide</label>
+      <input class="se-in" id="se-in" type="search" autocomplete="off" spellcheck="false" placeholder="Try “Hund”, “work function” or “Zeff”">
+      <p class="se-count" id="se-count" aria-live="polite"></p>
+      <ol class="se-res" id="se-res"></ol>
+    </div>
   </div>
 </section>
 
@@ -187,12 +246,13 @@
   <div class="wrap">
     <div class="bench-head">
       <h2 id="tools-h">Chemistry tools</h2>
-      <p>Four checks for the parts of the module that are easiest to get wrong. Use them to confirm homework, not to skip it.</p>
+      <p>Five checks for the parts of the module that are easiest to get wrong. Use them to confirm homework, not to skip it.</p>
     </div>
     <div class="tooltabs" role="tablist" aria-label="Choose a tool">
       <button type="button" role="tab" id="tt-ec" aria-controls="tp-ec" aria-selected="true">Electron configuration</button>
       <button type="button" role="tab" id="tt-qn" aria-controls="tp-qn" aria-selected="false" tabindex="-1">Quantum numbers</button>
       <button type="button" role="tab" id="tt-pt" aria-controls="tp-pt" aria-selected="false" tabindex="-1">Periodic trends</button>
+      <button type="button" role="tab" id="tt-pes" aria-controls="tp-pes" aria-selected="false" tabindex="-1">PES spectrum</button>
       <button type="button" role="tab" id="tt-ph" aria-controls="tp-ph" aria-selected="false" tabindex="-1">Photons and particles</button>
     </div>
 
@@ -264,6 +324,25 @@
       <div class="pt-read" id="pt-read" aria-live="polite"></div>
     </div>
 
+    <div class="tpanel" role="tabpanel" id="tp-pes" aria-labelledby="tt-pes" hidden>
+      <div class="axis">
+        <div class="side">
+          <form class="ctl" id="pes-form" novalidate>
+            <div class="fld"><label for="pes-el">Element (1–36)</label><input id="pes-el" type="text" list="ec-list" autocomplete="off" spellcheck="false" value="Si"></div>
+          </form>
+          <p class="hintline">Drawn the way AP spectra are: binding energy increases to the left, on a log scale so core and valence peaks fit together. Peak height is the number of electrons.</p>
+          <label class="chk pes-quiz"><input type="checkbox" id="pes-hide"> Hide the element name, so I can identify it</label>
+          <button type="button" class="linkbtn" id="pes-rand">Random element</button>
+          <p class="hintline pes-src">Inner peaks use measured X-ray binding energies; the rightmost peak is the first ionization energy. Middle peaks are approximate, and hatched peaks are estimates.</p>
+        </div>
+        <div class="pes-out">
+          <p class="ec-name" id="pes-name"></p>
+          <div class="pes-chart" id="pes-chart"></div>
+          <ul class="pes-list" id="pes-list"></ul>
+        </div>
+      </div>
+    </div>
+
     <div class="tpanel" role="tabpanel" id="tp-ph" aria-labelledby="tt-ph" hidden>
       <p class="hintline ph-intro">Numbers can be typed as 3.6e-19 or 3.6 × 10^-19. The constants match the equation sheet.</p>
       <div class="calcs">
@@ -302,6 +381,7 @@
     <div class="side">
       <h2 id="eq-h">Equation sheet</h2>
       <p>Constants are given on quizzes and tests. Know what each variable means and which equation links the two quantities you have.</p>
+      <button type="button" class="btn print-btn" id="print-eq">Print the equation sheet</button>
     </div>
     <dl class="eqlist">
       <div><dt>c = λν</dt><dd>Speed of light = wavelength × frequency. λ in meters, ν in s<sup>−1</sup> (Hz).</dd></div>
@@ -350,7 +430,7 @@
       <p data-rise><b>Which handouts were used?</b> Module 5 Goals, Reading Notes, Practice Problems and their key, both slide decks, the Flame Test Lab and its makeup sheet, the Copper Penny Lab, the PES worksheet, the Additional PES Questions key, and the Module 5 Review and its key. Only the Atomic Can Game could not be opened.</p>
       <p data-rise><b>How should I check my answers?</b> Each folder ends with worked problems from the handouts; tap one to see the answer. The full keys are on the Canvas Resources page. The spectrum check above confirms any hydrogen-line calculation.</p>
       <p data-rise><b>Why is one folder marked skipped?</b> The calendar skips the Quantum Numbers row. Its objective can still show up on the exam, so its summary and quiz are kept.</p>
-      <p data-rise><b>Does the guide remember my answers?</b> No. Each quiz starts fresh when you open a folder; use Reset to try one again.</p>
+      <p data-rise><b>Does the guide remember my answers?</b> Partly. Quizzes start fresh each time, but questions you miss are saved to the review list on the Practice test page, and folders you mark done stay ticked. Both are stored only in this browser.</p>
     </div>
   </div>
 </section>
@@ -394,8 +474,10 @@
 <script src="data/elements.js"></script>
 <script src="data/practice-test.js"></script>
 <script src="practice-test.js"></script>
+<script src="data/pes.js"></script>
 <script src="flashcards.js"></script>
 <script src="tools.js"></script>
+<script src="study-extras.js"></script>
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>

@@ -18,6 +18,8 @@ A static site with no build step. Vercel serves these files as they are.
 | Flashcard behaviour | `flashcards.js` |
 | Practice test questions and model answers | `data/practice-test.js` |
 | Practice test behaviour | `practice-test.js` |
+| Calculation drills, missed-question review, timer, progress checkmarks, printing, search | `study-extras.js` |
+| PES peak data for the PES tool (elements 1–36) | `data/pes.js` |
 | Element values for the periodic trends explorer | `data/elements.js` |
 | Electron configuration, quantum numbers, trends explorer and calculators | `tools.js` |
 

@@ -37,6 +37,7 @@
     el("fc-bar").style.width = (known.size / n * 100) + "%";
     el("fc-count").textContent = done ? `${n} of ${n} known` : `${known.size} of ${n} known · ${queue.length} left in the pile`;
     if (done) {
+      document.dispatchEvent(new CustomEvent("deckdone", { detail: deck.id }));
       el("fc-done-note").textContent = seen > n ? `It took ${seen} flips for ${n} cards.` : `${n} cards, none missed.`;
       return;
     }
