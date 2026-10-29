@@ -166,6 +166,7 @@
   atom.addEventListener("keydown", e => { const g = e.target.closest(".orbit"); if (g && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); jump(+g.dataset.n); } });
   el("bohr-z").addEventListener("change", () => {
     Z = +el("bohr-z").value; zlab.textContent = "+" + Z; ladderLabels();
+    document.querySelector(".bohr-presets").hidden = Z !== 1;
     if (last) { const r = equations(last[0], last[1]); setWave(r.nm, r.nu); }
   });
   document.querySelectorAll("[data-jump]").forEach(b => b.addEventListener("click", async () => {
