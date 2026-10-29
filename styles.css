@@ -621,7 +621,34 @@ dl.mini dd { margin: 4px 0 0; font-family: var(--display); font-size: var(--step
 /* One page at a time */
 body[data-page] [data-page] { display: none; }
 body[data-page="home"] [data-page="home"], body[data-page="days"] [data-page="days"], body[data-page="flashcards"] [data-page="flashcards"],
-body[data-page="tools"] [data-page="tools"], body[data-page="equations"] [data-page="equations"] { display: block; }
+body[data-page="tools"] [data-page="tools"], body[data-page="practice"] [data-page="practice"], body[data-page="equations"] [data-page="equations"] { display: block; }
 body[data-page="home"] .mosaic[data-page] { display: grid; }
 .top-links a[aria-current] { text-decoration: underline; text-decoration-thickness: 2px; }
 body:not([data-page="home"]) .top { border-bottom: 1px solid var(--surface-2); margin-bottom: clamp(24px, 4vw, 56px); }
+
+/* Practice test */
+.px-intro { margin-top: 20px; max-width: 36ch; color: var(--field-muted); }
+.px-jump { margin-top: 18px; }
+.px-jump a { color: var(--accent); font-weight: 600; }
+.qs .topic { display: block; font-size: var(--step-small); color: var(--field-muted); font-weight: 400; margin-bottom: 4px; }
+.px-result { margin-top: 64px; padding: 28px 32px; background: var(--accent); color: var(--accent-ink); max-width: 72ch; }
+.px-result .big { font-family: var(--display); font-size: var(--step-head); line-height: 1; }
+.px-result p + p, .px-result ul { margin-top: 12px; }
+.px-result ul { padding-left: 1.2em; }
+.px-result a { font-weight: 600; }
+.pfr { padding-block: var(--section); }
+.pfr h2 { font-size: var(--step-head); }
+.pfr .side p { margin-top: 20px; max-width: 36ch; }
+.frs { display: grid; gap: 4px; }
+.fr { background: var(--surface); padding: 24px 28px; }
+.fr:nth-child(even) { background: var(--surface-2); }
+.fr h3 { font-size: var(--step-lead); line-height: 1.15; }
+.fr h3 span { display: block; font-family: var(--text); font-size: var(--step-small); color: var(--muted); letter-spacing: 0; margin-bottom: 6px; }
+.fr .fq { margin-top: 12px; max-width: 68ch; }
+.fr ol, .fr ul { margin: 10px 0 0; padding-left: 1.4em; display: grid; gap: 6px; }
+.fr details { margin-top: 18px; }
+.fr summary { cursor: pointer; font-weight: 600; text-decoration: underline; text-underline-offset: 0.18em; width: fit-content; }
+.fr details[open] summary { margin-bottom: 10px; }
+.fr .fa { border-left: 4px solid var(--accent); padding-left: 18px; max-width: 68ch; animation: up .35s var(--ease) both; }
+.fr .fa b { font-weight: 600; }
+@media (max-width: 860px) { .pfr .side { margin-bottom: 40px; } }

@@ -17,6 +17,7 @@
     <div class="top-right">
       <nav class="top-links" aria-label="Sections">
         <a href="#days">Study days</a>
+        <a href="#practice">Practice test</a>
         <a href="#flashcards">Flashcards</a>
         <a href="#tools">Tools</a>
         <a href="#spectrum">Spectrum</a>
@@ -47,7 +48,7 @@
   <div class="wrap">
     <div class="exam-top">
       <h2 id="exam-h">Exam on Tuesday 11/10</h2>
-      <p>It covers every folder below, from the flame test to photoelectron spectra. Work one folder a day and take its quiz.</p>
+      <p>It covers every folder below, from the flame test to photoelectron spectra. Work one folder a day and take its quiz, then <a class="tlink" href="#practice">take the full practice test</a>.</p>
     </div>
     <dl class="facts">
       <div data-rise><dt id="days-left">14 days</dt><dd id="days-left-note">until the Module 5 exam</dd></div>
@@ -93,6 +94,29 @@
       <button type="button" class="reset" id="reset">Reset this quiz</button>
     </div>
     <div><ol class="qs" id="qs"></ol><div class="pager" id="pager"></div></div>
+  </div>
+</section>
+
+<section class="ink quiz" data-page="practice" id="practice" aria-labelledby="px-h">
+  <div class="wrap axis">
+    <div class="side">
+      <h2 id="px-h">Practice test</h2>
+      <p class="px-intro">Shaped like the real exam: 22 multiple choice, then 7 free response. Every question is new, none repeated from the daily quizzes. Try it without notes, then check the free response against the model answers.</p>
+      <p class="score" id="px-score" aria-live="polite"></p>
+      <button type="button" class="reset" id="px-reset">Start over with the choices reshuffled</button>
+      <p class="px-jump"><a href="#practice-fr">Skip to the free response</a></p>
+    </div>
+    <div><ol class="qs" id="px-qs"></ol><div class="px-result" id="px-result" hidden></div></div>
+  </div>
+</section>
+
+<section class="pfr" data-page="practice" id="practice-fr" aria-labelledby="pfr-h">
+  <div class="wrap axis">
+    <div class="side">
+      <h2 id="pfr-h">Free response</h2>
+      <p>Work each one on paper first, showing units, then open the model answer. On the real exam the reasoning earns as many points as the number.</p>
+    </div>
+    <div class="frs" id="px-fr"></div>
   </div>
 </section>
 
@@ -337,6 +361,7 @@
     <div class="rows">
       <ul class="places">
         <li><a href="#days" id="foot-today">Today’s folder</a></li>
+        <li><a href="#practice">Practice test</a></li>
         <li><a href="#flashcards">Flashcards</a></li>
         <li><a href="#tools">Chemistry tools</a></li>
         <li><a href="#spectrum">Spectrum check</a></li>
@@ -367,6 +392,8 @@
 <script src="app.js"></script>
 <script src="data/cards.js"></script>
 <script src="data/elements.js"></script>
+<script src="data/practice-test.js"></script>
+<script src="practice-test.js"></script>
 <script src="flashcards.js"></script>
 <script src="tools.js"></script>
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>

@@ -16,6 +16,8 @@ A static site with no build step. Vercel serves these files as they are.
 | Quiz, tabs, countdown and spectrum check behaviour | `app.js` |
 | Equation and constant flashcards (term cards come from the day files) | `data/cards.js` |
 | Flashcard behaviour | `flashcards.js` |
+| Practice test questions and model answers | `data/practice-test.js` |
+| Practice test behaviour | `practice-test.js` |
 | Element values for the periodic trends explorer | `data/elements.js` |
 | Electron configuration, quantum numbers, trends explorer and calculators | `tools.js` |
 
