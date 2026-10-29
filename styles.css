@@ -621,7 +621,7 @@ dl.mini dd { margin: 4px 0 0; font-family: var(--display); font-size: var(--step
 /* One page at a time */
 body[data-page] [data-page] { display: none; }
 body[data-page="home"] [data-page="home"], body[data-page="days"] [data-page="days"], body[data-page="flashcards"] [data-page="flashcards"],
-body[data-page="tools"] [data-page="tools"], body[data-page="practice"] [data-page="practice"], body[data-page="drills"] [data-page="drills"], body[data-page="search"] [data-page="search"], body[data-page="equations"] [data-page="equations"] { display: block; }
+body[data-page="tools"] [data-page="tools"], body[data-page="practice"] [data-page="practice"], body[data-page="drills"] [data-page="drills"], body[data-page="bohr"] [data-page="bohr"], body[data-page="search"] [data-page="search"], body[data-page="equations"] [data-page="equations"] { display: block; }
 body[data-page="home"] .mosaic[data-page] { display: grid; }
 .top-links a[aria-current] { text-decoration: underline; text-decoration-thickness: 2px; }
 body:not([data-page="home"]) .top { border-bottom: 1px solid var(--surface-2); margin-bottom: clamp(24px, 4vw, 56px); }
@@ -754,3 +754,67 @@ body:not([data-page="home"]) .top { border-bottom: 1px solid var(--surface-2); m
   table.trends td::before { content: none !important; }
   .eqlist dt { font-size: 11pt; } .eqlist div { padding-bottom: 3pt; } .eqs h2 { font-size: 18pt; }
 }
+
+/* Bohr model */
+.bohr { padding-block: var(--section); }
+.bohr-ctl { display: flex; flex-wrap: wrap; gap: 20px 40px; align-items: end; margin-top: clamp(40px, 5vw, 64px); }
+.bohr-ctl .fld { width: 280px; }
+.bohr-ctl .fld select { border-bottom-color: var(--field-muted); font: 400 var(--step-body)/1.3 var(--display); }
+.bohr-presets { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.bohr-presets span { color: var(--field-muted); margin-right: 6px; }
+.bohr-presets button { min-height: 40px; padding: 6px 12px; border: 0; border-radius: 0; background: var(--field-surface); color: var(--field-ink); font: 600 var(--step-small)/1.2 var(--text); cursor: pointer; }
+.bohr-presets button:hover { background: var(--field-surface-2); }
+.bohr-sum { margin-top: 28px; font-family: var(--display); font-size: var(--step-lead); line-height: 1.25; max-width: 50ch; min-height: 2.5em; }
+.bohr-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .7fr) minmax(0, 1.15fr); gap: 32px; margin-top: 28px; align-items: start; }
+.bohr-fig { margin: 0; }
+.bohr-fig svg { width: 100%; height: auto; display: block; }
+.bohr-fig figcaption { font-size: var(--step-small); color: var(--field-muted); margin-top: 10px; line-height: 1.4; }
+#bohr-atom .ring { fill: none; stroke: var(--field-surface-2); stroke-width: 2; transition: stroke .2s; }
+#bohr-atom .hit { fill: none; stroke: transparent; stroke-width: 22; cursor: pointer; }
+#bohr-atom .orbit:hover .ring, #bohr-atom .orbit:focus-visible .ring { stroke: var(--field-muted); stroke-width: 3; }
+#bohr-atom .orbit.target .ring { stroke: var(--accent); stroke-dasharray: 4 6; }
+#bohr-atom .orbit:focus { outline: none; }
+#bohr-atom .nlab { fill: var(--field-muted); font: 13px var(--text); pointer-events: none; }
+#bohr-atom .nuc { fill: var(--accent); }
+#bohr-atom .zlab { fill: var(--accent-ink); font: 600 12px var(--text); text-anchor: middle; pointer-events: none; }
+#bohr-atom .electron { fill: var(--field-ink); stroke: var(--field); stroke-width: 3; pointer-events: none; }
+#bohr-atom .photon { fill: none; stroke-width: 4; stroke-linecap: round; pointer-events: none; }
+#bohr-ladder .lax { stroke: var(--field-muted); stroke-width: 1.5; }
+#bohr-ladder .lzero { stroke: var(--field-muted); stroke-dasharray: 3 5; }
+#bohr-ladder .lvl { stroke: var(--field-ink); stroke-width: 2; }
+#bohr-ladder .llab { fill: var(--field-muted); font: 11px var(--text); }
+#bohr-ladder .llab.on { fill: var(--accent); font-weight: 600; }
+#bohr-ladder .lnum { fill: var(--field-ink); font: 600 13px var(--text); text-anchor: end; }
+#bohr-ladder .ltop { fill: var(--field-muted); font: 11px var(--text); }
+#bohr-ladder .lname { fill: var(--field-muted); font: 11px var(--text); text-anchor: middle; }
+#bohr-ladder .larrow { stroke: var(--accent); stroke-width: 4; }
+#bohr-ladder .ldot { fill: var(--field-ink); }
+.eq-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.eq-step { background: var(--field-surface); padding: 14px 18px; opacity: .45; transition: opacity .35s, background .35s; border-left: 4px solid transparent; }
+.eq-step.lit { opacity: 1; border-left-color: var(--accent); }
+.eq-step h3 { font-family: var(--text); font-size: var(--step-small); font-weight: 600; letter-spacing: 0; color: var(--accent); }
+.eq-what { font-size: var(--step-small); color: var(--field-muted); margin-top: 4px; line-height: 1.4; }
+.eq-live { margin-top: 8px; line-height: 1.5; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.eq-live b { font-weight: 600; color: var(--field-ink); }
+.eq-check { font-size: var(--step-small); color: var(--field-muted); }
+.wave-box { margin-top: 48px; background: var(--field-surface); padding: 24px 28px; }
+.wave-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; align-items: baseline; }
+.wave-head h3 { font-size: var(--step-lead); }
+.wave-head p { font-variant-numeric: tabular-nums; }
+#bohr-wave { width: 100%; height: auto; display: block; margin-top: 12px; }
+#bohr-wave .wpath { fill: none; stroke-width: 4; vector-effect: non-scaling-stroke; }
+#bohr-wave .wpath.invisible { stroke-dasharray: 6 6; }
+#bohr-wave .ruler line { stroke: var(--field-ink); stroke-width: 2; vector-effect: non-scaling-stroke; }
+#bohr-wave .ruler text { fill: var(--field-ink); font: 600 13px var(--text); }
+#bohr-wave .probe { stroke: var(--accent); stroke-width: 2; stroke-dasharray: 4 4; vector-effect: non-scaling-stroke; }
+.wave-note { margin-top: 10px; }
+.wave-key { margin-top: 6px; font-size: var(--step-small); color: var(--field-muted); max-width: 80ch; }
+@media (max-width: 1100px) { .bohr-grid { grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr); } .eq-steps { grid-column: 1 / -1; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); } }
+
+/* Header with more links */
+.top .axis { grid-template-columns: auto minmax(0, 1fr); gap: 32px; }
+.top-right { justify-content: flex-end; gap: 28px; }
+.top-links { gap: 20px; }
+.top-links a { white-space: nowrap; font-size: 0.95em; }
+.top .btn { white-space: nowrap; }
+@media (max-width: 1200px) { .top .btn { display: none; } }

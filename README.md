@@ -20,6 +20,7 @@ A static site with no build step. Vercel serves these files as they are.
 | Practice test behaviour | `practice-test.js` |
 | Calculation drills, missed-question review, timer, progress checkmarks, printing, search | `study-extras.js` |
 | PES peak data for the PES tool (elements 1–36) | `data/pes.js` |
+| Bohr model page (atom, energy ladder, equations, wave) | `bohr.js` |
 | Element values for the periodic trends explorer | `data/elements.js` |
 | Electron configuration, quantum numbers, trends explorer and calculators | `tools.js` |
 

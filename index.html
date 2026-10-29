@@ -20,6 +20,7 @@
         <a href="#practice">Practice test</a>
         <a href="#drills">Drills</a>
         <a href="#flashcards">Flashcards</a>
+        <a href="#bohr">Bohr model</a>
         <a href="#tools">Tools</a>
         <a href="#equations">Equations</a>
         <a href="#search">Search</a>
@@ -175,6 +176,52 @@
       <input class="se-in" id="se-in" type="search" autocomplete="off" spellcheck="false" placeholder="Try “Hund”, “work function” or “Zeff”">
       <p class="se-count" id="se-count" aria-live="polite"></p>
       <ol class="se-res" id="se-res"></ol>
+    </div>
+  </div>
+</section>
+
+<section class="ink bohr" data-page="bohr" id="bohr" aria-labelledby="bohr-h">
+  <div class="wrap">
+    <div class="bench-head">
+      <h2 id="bohr-h">The Bohr model, live</h2>
+      <p>Click any orbit to move the electron there. Falling down emits a photon; jumping up absorbs one. Every equation on the right recalculates for the jump you just made, step by step.</p>
+    </div>
+    <div class="bohr-ctl">
+      <div class="fld"><label for="bohr-z">Atom</label><select id="bohr-z"><option value="1">Hydrogen, H (Z = 1)</option><option value="2">Helium ion, He⁺ (Z = 2)</option><option value="3">Lithium ion, Li²⁺ (Z = 3)</option></select></div>
+      <div class="bohr-presets" role="group" aria-label="Famous transitions">
+        <span>Try:</span>
+        <button type="button" data-jump="3,2">3 → 2, red</button>
+        <button type="button" data-jump="4,2">4 → 2, blue-green</button>
+        <button type="button" data-jump="6,2">6 → 2, violet</button>
+        <button type="button" data-jump="2,1">2 → 1, ultraviolet</button>
+        <button type="button" data-jump="5,3">5 → 3, infrared</button>
+        <button type="button" data-jump="1,3">1 → 3, absorb</button>
+      </div>
+    </div>
+    <p class="bohr-sum" id="bohr-sum" aria-live="polite"></p>
+    <div class="bohr-grid">
+      <figure class="bohr-fig">
+        <svg id="bohr-atom" viewBox="0 0 600 600" role="group" aria-label="Bohr atom with six orbits"></svg>
+        <figcaption>Orbits are not to scale: the real radius grows as n², so n = 6 is 36 times wider than n = 1.</figcaption>
+      </figure>
+      <figure class="bohr-fig ladder">
+        <svg id="bohr-ladder" viewBox="0 0 330 550" role="img" aria-label="Energy level diagram"><defs><marker id="bohr-head" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/></marker></defs></svg>
+        <figcaption>Levels drawn at their true energies. They crowd together near E = 0, which is why the lines in each series bunch up.</figcaption>
+      </figure>
+      <ol class="eq-steps">
+        <li class="eq-step"><h3>1 · Energy of each level</h3><p class="eq-what">The electron’s energy depends only on n (and Z). It is negative because a bound electron has less energy than a free one.</p><p class="eq-live" id="eq-1"></p></li>
+        <li class="eq-step"><h3>2 · Change in energy</h3><p class="eq-what">Final minus initial. The arrow on the ladder is ΔE.</p><p class="eq-live" id="eq-2"></p></li>
+        <li class="eq-step"><h3>3 · Energy of the photon</h3><p class="eq-what">The photon carries exactly the energy gap, never part of it. That is why only certain lines appear.</p><p class="eq-live" id="eq-3"></p></li>
+        <li class="eq-step"><h3>4 · Wavelength, λ</h3><p class="eq-what">Distance from one crest to the next. Bigger energy, shorter λ.</p><p class="eq-live" id="eq-4"></p></li>
+        <li class="eq-step"><h3>5 · Frequency, ν</h3><p class="eq-what">How many crests pass a point each second. All light travels at c, so shorter waves must pass more often.</p><p class="eq-live" id="eq-5"></p></li>
+        <li class="eq-step"><h3>6 · Per mole</h3><p class="eq-what">One photon’s energy × Avogadro’s number, for one mole of atoms making the same jump.</p><p class="eq-live" id="eq-6"></p></li>
+      </ol>
+    </div>
+    <div class="wave-box">
+      <div class="wave-head"><h3>The photon as a wave</h3><p id="wave-nu"></p></div>
+      <svg id="bohr-wave" viewBox="0 0 1000 160" role="img" aria-label="The emitted light wave"></svg>
+      <p class="wave-note" id="wave-note"></p>
+      <p class="wave-key">Every wave here moves at the same speed, c. Watch the line in the middle: the shorter the wavelength, the more crests cross it each second. Wavelengths are drawn on a stretched scale so ultraviolet and infrared both fit.</p>
     </div>
   </div>
 </section>
@@ -443,6 +490,7 @@
         <li><a href="#days" id="foot-today">Today’s folder</a></li>
         <li><a href="#practice">Practice test</a></li>
         <li><a href="#flashcards">Flashcards</a></li>
+        <li><a href="#bohr">Bohr model</a></li>
         <li><a href="#tools">Chemistry tools</a></li>
         <li><a href="#spectrum">Spectrum check</a></li>
         <li><a href="#equations">Equation sheet</a></li>
@@ -478,6 +526,7 @@
 <script src="flashcards.js"></script>
 <script src="tools.js"></script>
 <script src="study-extras.js"></script>
+<script src="bohr.js"></script>
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
