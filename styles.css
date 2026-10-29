@@ -818,3 +818,47 @@ body:not([data-page="home"]) .top { border-bottom: 1px solid var(--surface-2); m
 .top-links a { white-space: nowrap; font-size: 0.95em; }
 .top .btn { white-space: nowrap; }
 @media (max-width: 1200px) { .top .btn { display: none; } }
+
+/* Topic colours */
+:root { --t-light: #ffd166; --t-atom: #7cc6ff; --t-electrons: #c9a7ff; --t-trends: #ff9f8a; }
+[data-topic="light"] { --tc: var(--t-light); } [data-topic="atom"] { --tc: var(--t-atom); }
+[data-topic="electrons"] { --tc: var(--t-electrons); } [data-topic="trends"] { --tc: var(--t-trends); }
+.topic-key { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 18px; font-size: var(--step-small); color: var(--muted); }
+.topic-key span::before { content: ""; display: inline-block; width: 12px; height: 12px; background: var(--tc); margin-right: 7px; vertical-align: -1px; }
+.qs .topic[data-topic], #dr-topic[data-topic] { display: inline-block; background: var(--tc); color: #232323; padding: 2px 8px; font-weight: 600; margin-bottom: 8px; }
+.tabs a[data-topic] { box-shadow: inset 4px 0 0 var(--tc); }
+.day-panel[data-topic] h3 { border-left: 6px solid var(--tc); padding-left: 14px; }
+
+/* Bigger day tabs with quiz score */
+.tabs a { min-height: 84px; padding: 10px 14px 10px 18px; }
+.tabs .sc { font-size: 0.78rem; line-height: 1.3; margin-top: 3px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.tabs .sc.full { font-weight: 600; color: var(--ink); }
+.tabs a[aria-current="true"] .sc { color: var(--bg); opacity: .85; }
+.tabs a.is-today:not([aria-current="true"]) .sc { color: var(--accent-ink); }
+.days-body { grid-template-columns: 170px minmax(0, 1fr); }
+
+/* Sub-tabs inside a day */
+.subtabs { display: flex; gap: 4px; margin-top: 48px; scroll-margin-top: 12px; }
+.subtabs button { flex: 1 1 0; min-height: 56px; border: 0; border-radius: 0; background: var(--surface); color: var(--ink); font: 600 var(--step-body)/1.2 var(--text); cursor: pointer; }
+.subtabs button:hover { background: var(--surface-2); }
+.subtabs button[aria-selected="true"] { background: var(--ink); color: var(--bg); }
+body[data-page="days"][data-sub="summary"] #quiz, body[data-page="days"][data-sub="terms"] #quiz { display: none; }
+body[data-page="days"][data-sub="quiz"] #reading { display: none; }
+body[data-sub="summary"] #reading .side, body[data-sub="terms"] #reading .read-main { display: none; }
+body[data-sub] #reading .axis { display: block; }
+body[data-sub] .reading { padding-top: clamp(40px, 5vw, 72px); }
+body[data-sub="terms"] #reading .side { padding: 0; }
+body[data-sub="terms"] #reading .side { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px 56px; }
+body[data-sub="terms"] #reading .side section + section { margin-top: 0; }
+body[data-sub="terms"] .side h3 { font-family: var(--display); font-size: var(--step-lead); font-weight: 400; margin-bottom: 20px; }
+@media (max-width: 860px) { body[data-sub="terms"] #reading .side { grid-template-columns: minmax(0, 1fr); } }
+
+/* Equation links */
+.eq-go { display: block; margin-top: 6px; padding: 0; background: none; border: 0; color: var(--ink); font: 600 var(--step-small)/1.4 var(--text); text-decoration: underline; text-underline-offset: 0.18em; cursor: pointer; }
+.eq-go:hover { opacity: .65; }
+@media print { .eq-go, .theme-btn { display: none !important; } }
+
+/* Light and dark switch */
+.theme-btn { width: 44px; height: 44px; flex: 0 0 44px; border: 2px solid var(--ink); border-radius: 50%; background: transparent; cursor: pointer; display: grid; place-items: center; }
+.theme-btn span { width: 18px; height: 18px; border-radius: 50%; background: linear-gradient(90deg, var(--ink) 50%, transparent 50%); border: 2px solid var(--ink); }
+.theme-btn:hover { background: var(--surface); }

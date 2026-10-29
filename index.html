@@ -26,6 +26,7 @@
         <a href="#search">Search</a>
       </nav>
       <a class="btn" href="#days" id="today-btn">Open today’s folder</a>
+      <button type="button" class="theme-btn" id="theme-btn" aria-label="Switch to dark mode"><span aria-hidden="true"></span></button>
     </div>
   </div>
 </header>
@@ -75,10 +76,16 @@
       <h2 id="days-h"><span class="soft">Study folders,</span> one per class day</h2>
       <a class="tlink" href="#quiz">Go to this day’s quiz</a>
     </div>
+    <p class="topic-key" id="topic-key" aria-label="Topic colours"></p>
     <div class="days-body">
       <nav class="tabs" id="tabs" aria-label="Choose a day"></nav>
       <div class="day-panel" id="panel" aria-live="polite"></div>
     </div>
+    <nav class="subtabs" id="subtabs" role="tablist" aria-label="Parts of this folder">
+      <button type="button" role="tab" data-sub="summary">Summary</button>
+      <button type="button" role="tab" data-sub="terms">Key terms and mistakes</button>
+      <button type="button" role="tab" data-sub="quiz">Quiz</button>
+    </nav>
   </div>
 </section>
 
@@ -527,6 +534,7 @@
 <script src="tools.js"></script>
 <script src="study-extras.js"></script>
 <script src="bohr.js"></script>
+<script src="ui-extras.js"></script>
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
