@@ -5,6 +5,15 @@
     get(k) { try { return JSON.parse(localStorage.getItem("m5." + k)) || []; } catch (e) { return []; } },
     set(k, v) { try { localStorage.setItem("m5." + k, JSON.stringify(v)); } catch (e) { } }
   };
+  // One-time cleanup after the 10/29 regroup: quiz positions changed in these folders.
+  try {
+    if (localStorage.getItem("m5.v") !== "2") {
+      const moved = ["dqn", "d1030", "d1103", "d1105"];
+      store.set("missed", store.get("missed").filter(id => !moved.includes(id.split(":")[0])));
+      const best = JSON.parse(localStorage.getItem("m5.best") || "{}"); moved.forEach(id => delete best[id]);
+      localStorage.setItem("m5.best", JSON.stringify(best)); localStorage.setItem("m5.v", "2");
+    }
+  } catch (e) { }
   const textOf = html => { const d = document.createElement("div"); d.innerHTML = html; return d.textContent.replace(/\s+/g, " ").trim(); };
   const H = 6.626e-34, C = 2.998e8, NA = 6.022e23, R = 1.097e7, RH = 2.178e-18;
 

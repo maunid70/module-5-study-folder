@@ -1,49 +1,168 @@
 // d1105: edit this day's goals, summary, key terms, mistakes, quiz and handout notes here.
 DAYS.push({
-  id: "d1105", tab: "11/5", title: "Periodic Table",
-  goals: ["I can predict and justify trends in atomic properties based on location on the periodic table and/or shell model."],
-  videos: [22, 23, 24, 25],
-  summary: `<p><strong>Video 22, Electronegativity.</strong> How strongly an atom pulls on (“hogs”) the shared electrons in a covalent bond. It closely tracks electron affinity. In water, O is more electronegative than H, so the electrons spend more time near O: O is partly negative (δ−) and the H atoms partly positive (δ+). Electronegativity <strong>increases across a period</strong> (Na wants to give an electron away, Cl wants one) and <strong>decreases down a group</strong> (larger atoms, valence electrons farther away and more shielded). Most electronegative: top right (F, O, N); least: bottom left (Cs, Fr). Noble gases are usually left out because they rarely bond.</p>
-  <p><strong>Video 23, Periodicity.</strong> Every trend comes from electron configuration and <strong>Coulomb’s law</strong> (bigger charges, stronger force; bigger distance, weaker force; plus shielding). Ionization energy and electronegativity go up and to the right; atomic radius goes down and to the left. Ion charge: count how far an element is from the nearest noble gas (halogens −1, group 16 −2, group 15 −3, alkali metals +1, alkaline earth +2). Mendeleev gets credit for the table because he left gaps and correctly predicted elements like “eka-silicon” (germanium). Trends also guide material design (SiO<sub>2</sub> ceramics, tin oxide glazes from the same group).</p>
-  <p><strong>Video 24, The periodic table.</strong> <strong>Groups</strong> are columns (1–18, or 1A–8A for main groups); <strong>periods</strong> are rows. Alkali metals (group 1, not H) are soft, very reactive, react with water and are never found pure. Alkaline earth metals (group 2) are reactive but less so. Halogens (group 17) are reactive, colorful nonmetals; the name means “salt former.” Noble gases (group 18) are unreactive. Metals are on the left: shiny, malleable, ductile, good conductors, solid at room temperature except Hg. Nonmetals are on the right: brittle as solids, poor conductors. <strong>Metalloids</strong> (B, Si, Ge, As, Sb, Te) sit on the staircase line with in-between properties; Si is a semiconductor.</p>
-  <p><strong>Video 25, Groups.</strong> Elements in a group behave alike because they have the same number of valence electrons: Li [He]2s<sup>1</sup> and Na [Ne]3s<sup>1</sup> both lose one electron. Carbon and silicon both have four. O and S both gain two. Halogens have seven and react strongly with alkali metals. Noble gases have a full shell.</p>`,
-  terms: [["Electronegativity","Attraction of an atom for shared electrons in a bond."],["Group / period","Column / row of the periodic table."],["Alkali metals","Group 1 (not H); one valence electron; very reactive."],["Halogens","Group 17; seven valence electrons; form −1 ions."],["Metalloid","Element with properties between metals and nonmetals."],["Periodicity","Repeating patterns in properties across the table."]],
-  mistakes: ["Calling hydrogen an alkali metal. It is in group 1 but is a nonmetal.","Mixing up electronegativity (in a bond) with electron affinity (isolated atom gaining an electron).","Giving the electronegativity of noble gases as the highest."],
-  todo: "Reading: sections 7.6–7.8. Practice Problems #80–102. Periodic Table Puzzle.",
-  quiz: [
-    ["Which element is the most electronegative?", ["O", "F", "Cl", "N"], 1, "Fluorine sits at the top right (excluding noble gases): small, with a high Z<sub>eff</sub>."],
-    ["In an H–Cl bond, where is the partial negative charge?", ["On H", "Split equally", "On Cl, because it is more electronegative", "There is no partial charge"], 2, "The more electronegative atom pulls the shared pair closer and becomes δ−."],
-    ["Why does electronegativity decrease down a group?", ["Valence electrons are farther from the nucleus and more shielded, so the attraction is weaker", "The nucleus loses protons", "Atoms gain fewer neutrons", "Valence electrons become core electrons"], 0, "Coulomb’s law: a larger distance and more core shielding mean a weaker pull on bonding electrons."],
-    ["Why do sodium and potassium react in similar ways?", ["They have the same mass", "They are both in period 3", "They are both gases", "Both have one valence electron (ns<sup>1</sup>) that they lose easily"], 3, "Same group means same valence configuration, which means similar chemistry."],
-    ["What ion does selenium (group 16) usually form?", ["Se<sup>2−</sup>", "Se<sup>2+</sup>", "Se<sup>6+</sup>", "Se<sup>−</sup>"], 0, "Se has six valence electrons; gaining two reaches the krypton configuration."],
-    ["What ion does strontium (group 2) usually form?", ["Sr<sup>−</sup>", "Sr<sup>2+</sup>", "Sr<sup>+</sup>", "Sr<sup>6−</sup>"], 1, "Losing two electrons is far easier than gaining six; Sr<sup>2+</sup> has the krypton configuration."],
-    ["Why is Mendeleev, rather than Meyer, credited with the periodic table?", ["He discovered all the elements", "He used atomic numbers", "He left gaps and correctly predicted the properties of undiscovered elements", "He published first by many years"], 2, "His predictions for eka-silicon matched germanium closely once it was found."],
-    ["Which element is a metalloid?", ["Al", "P", "S", "Si"], 3, "Silicon lies on the staircase line and is a semiconductor. Al is a metal; P and S are nonmetals."],
-    ["A solid element is dull, brittle and a poor conductor of electricity. It is most likely:", ["a nonmetal such as sulfur", "an alkali metal", "a transition metal", "mercury"], 0, "Those are nonmetal properties. Metals are shiny, malleable and conductive."],
-    ["Why is pure sodium never found lying around in nature?", ["It is radioactive", "It is so reactive (it loses its one valence electron easily) that it is always found combined with other elements", "It is a gas", "It dissolves in air"], 1, "Its low ionization energy makes it react with water and oxygen, so it exists in compounds such as NaCl."]
+  "id": "d1105",
+  "tab": "11/5",
+  "title": "Periodic Table",
+  "goals": [
+    "I can predict and justify trends in atomic properties based on location on the periodic table and/or shell model."
+  ],
+  "videos": [
+    24,
+    25
+  ],
+  "summary": "<p><strong>Video 22, Electronegativity.</strong> How strongly an atom pulls on (“hogs”) the shared electrons in a covalent bond. It closely tracks electron affinity. In water, O is more electronegative than H, so the electrons spend more time near O: O is partly negative (δ−) and the H atoms partly positive (δ+). Electronegativity <strong>increases across a period</strong> (Na wants to give an electron away, Cl wants one) and <strong>decreases down a group</strong> (larger atoms, valence electrons farther away and more shielded). Most electronegative: top right (F, O, N); least: bottom left (Cs, Fr). Noble gases are usually left out because they rarely bond.</p>\n  <p><strong>Video 23, Periodicity.</strong> Every trend comes from electron configuration and <strong>Coulomb’s law</strong> (bigger charges, stronger force; bigger distance, weaker force; plus shielding). Ionization energy and electronegativity go up and to the right; atomic radius goes down and to the left. Ion charge: count how far an element is from the nearest noble gas (halogens −1, group 16 −2, group 15 −3, alkali metals +1, alkaline earth +2). Mendeleev gets credit for the table because he left gaps and correctly predicted elements like “eka-silicon” (germanium). Trends also guide material design (SiO<sub>2</sub> ceramics, tin oxide glazes from the same group).</p>\n  <p><strong>Video 24, The periodic table.</strong> <strong>Groups</strong> are columns (1–18, or 1A–8A for main groups); <strong>periods</strong> are rows. Alkali metals (group 1, not H) are soft, very reactive, react with water and are never found pure. Alkaline earth metals (group 2) are reactive but less so. Halogens (group 17) are reactive, colorful nonmetals; the name means “salt former.” Noble gases (group 18) are unreactive. Metals are on the left: shiny, malleable, ductile, good conductors, solid at room temperature except Hg. Nonmetals are on the right: brittle as solids, poor conductors. <strong>Metalloids</strong> (B, Si, Ge, As, Sb, Te) sit on the staircase line with in-between properties; Si is a semiconductor.</p>\n  <p><strong>Video 25, Groups.</strong> Elements in a group behave alike because they have the same number of valence electrons: Li [He]2s<sup>1</sup> and Na [Ne]3s<sup>1</sup> both lose one electron. Carbon and silicon both have four. O and S both gain two. Halogens have seven and react strongly with alkali metals. Noble gases have a full shell.</p>",
+  "terms": [
+    [
+      "Group / period",
+      "Column / row of the periodic table."
+    ],
+    [
+      "Alkali metals",
+      "Group 1 (not H); one valence electron; very reactive."
+    ],
+    [
+      "Halogens",
+      "Group 17; seven valence electrons; form −1 ions."
+    ],
+    [
+      "Metalloid",
+      "Element with properties between metals and nonmetals."
+    ]
+  ],
+  "mistakes": [
+    "Calling hydrogen an alkali metal. It is in group 1 but is a nonmetal."
+  ],
+  "todo": "Reading: sections 7.6–7.8. Practice Problems #80–102. Periodic Table Puzzle.",
+  "quiz": [
+    [
+      "Why do sodium and potassium react in similar ways?",
+      [
+        "They have the same mass",
+        "They are both in period 3",
+        "They are both gases",
+        "Both have one valence electron (ns<sup>1</sup>) that they lose easily"
+      ],
+      3,
+      "Same group means same valence configuration, which means similar chemistry."
+    ],
+    [
+      "What ion does selenium (group 16) usually form?",
+      [
+        "Se<sup>2−</sup>",
+        "Se<sup>2+</sup>",
+        "Se<sup>6+</sup>",
+        "Se<sup>−</sup>"
+      ],
+      0,
+      "Se has six valence electrons; gaining two reaches the krypton configuration."
+    ],
+    [
+      "What ion does strontium (group 2) usually form?",
+      [
+        "Sr<sup>−</sup>",
+        "Sr<sup>2+</sup>",
+        "Sr<sup>+</sup>",
+        "Sr<sup>6−</sup>"
+      ],
+      1,
+      "Losing two electrons is far easier than gaining six; Sr<sup>2+</sup> has the krypton configuration."
+    ],
+    [
+      "Why is Mendeleev, rather than Meyer, credited with the periodic table?",
+      [
+        "He discovered all the elements",
+        "He used atomic numbers",
+        "He left gaps and correctly predicted the properties of undiscovered elements",
+        "He published first by many years"
+      ],
+      2,
+      "His predictions for eka-silicon matched germanium closely once it was found."
+    ],
+    [
+      "Which element is a metalloid?",
+      [
+        "Al",
+        "P",
+        "S",
+        "Si"
+      ],
+      3,
+      "Silicon lies on the staircase line and is a semiconductor. Al is a metal; P and S are nonmetals."
+    ],
+    [
+      "A solid element is dull, brittle and a poor conductor of electricity. It is most likely:",
+      [
+        "a nonmetal such as sulfur",
+        "an alkali metal",
+        "a transition metal",
+        "mercury"
+      ],
+      0,
+      "Those are nonmetal properties. Metals are shiny, malleable and conductive."
+    ],
+    [
+      "Why is pure sodium never found lying around in nature?",
+      [
+        "It is radioactive",
+        "It is so reactive (it loses its one valence electron easily) that it is always found combined with other elements",
+        "It is a gas",
+        "It dissolves in air"
+      ],
+      1,
+      "Its low ionization energy makes it react with water and oxygen, so it exists in compounds such as NaCl."
+    ]
   ]
 });
 
 EXTRA.d1105 = {
-  overview: `How the periodic table is organized and why elements in a group behave alike: same valence electrons. Electronegativity follows the same Coulomb reasoning as ionization energy, and an element’s usual ion charge comes from how far it is from a noble gas.`,
-  vs: {
-    22: `<p>Electronegativity is how strongly an atom pulls on the shared electrons in a covalent bond. In water, O pulls harder than H, so O is partly negative (δ−) and each H partly positive (δ+). It increases across a period (Na would rather give an electron away, Cl wants one) and decreases down a group (bigger atoms, outer electrons farther away and more shielded). Highest at the top right (F, O, N); lowest at the bottom left (Cs, Fr). Noble gases are usually left out.</p>`,
-    23: `<p>Every trend comes from electron configuration (built by the aufbau principle) and Coulomb’s law: bigger charges, stronger force; larger distance, weaker force; plus shielding. Ionization energy and electronegativity go up and to the right; radius goes down and to the left. Ion charge: count the steps to the nearest noble gas (halogens −1, group 16 −2, alkali metals +1). Mendeleev gets the credit because he left gaps and correctly predicted “eka-silicon” (germanium). Trends also guide material design, such as SiO<sub>2</sub> ceramics and tin oxide glazes.</p>`,
-    24: `<p><strong>Groups</strong> are columns (1–18, or 1A–8A for main groups); <strong>periods</strong> are rows. Alkali metals (group 1, not H) are soft, very reactive, react with water and are never found pure. Alkaline earth metals are reactive but less so. Halogens (“salt formers”) are reactive, colorful nonmetals; noble gases are unreactive. Metals sit on the left (shiny, malleable, ductile, conductive, solid except Hg), nonmetals on the right, and <strong>metalloids</strong> (B, Si, Ge, As, Sb, Te) along the staircase line; Si is a semiconductor.</p>`,
-    25: `<p>Elements in a group behave alike because they have the same number of valence electrons: Li [He]2s<sup>1</sup> and Na [Ne]3s<sup>1</sup> each lose one; C and Si each have four; O and S each gain two. Transition metals backfill the d block (Sc = [Ar]4s<sup>2</sup>3d<sup>1</sup>). Halogens have seven and react strongly with alkali metals; noble gases have a full shell.</p>`
+  "overview": "How the periodic table is organized and why elements in a group behave alike: same valence electrons. An element’s usual ion charge comes from how far it is from a noble gas, and metals, nonmetals and metalloids sort by how easily they give up electrons.",
+  "vs": {
+    "24": "<p><strong>Groups</strong> are columns (1–18, or 1A–8A for main groups); <strong>periods</strong> are rows. Alkali metals (group 1, not H) are soft, very reactive, react with water and are never found pure. Alkaline earth metals are reactive but less so. Halogens (“salt formers”) are reactive, colorful nonmetals; noble gases are unreactive. Metals sit on the left (shiny, malleable, ductile, conductive, solid except Hg), nonmetals on the right, and <strong>metalloids</strong> (B, Si, Ge, As, Sb, Te) along the staircase line; Si is a semiconductor.</p>",
+    "25": "<p>Elements in a group behave alike because they have the same number of valence electrons: Li [He]2s<sup>1</sup> and Na [Ne]3s<sup>1</sup> each lose one; C and Si each have four; O and S each gain two. Transition metals backfill the d block (Sc = [Ar]4s<sup>2</sup>3d<sup>1</sup>). Halogens have seven and react strongly with alkali metals; noble gases have a full shell.</p>"
   },
-  handouts: [
-    ["Reading Notes 7.1 and 7.6–7.8", `<p>In 1869 Mendeleev and Meyer both ordered the elements by atomic weight; Mendeleev gets the credit because his predicted elements were found with the predicted properties. Moseley later arranged the table by atomic number. Metals: luster, malleable, ductile, conductive, form cations, and their oxides are ionic and basic. Nonmetals: brittle, poor conductors, gain electrons, and their oxides are molecular and acidic. Alkali metals react violently with water and form salts with halogens; alkaline earth metals are harder, denser and less reactive. Hydrogen’s ionization energy is higher than any metal’s, so it is a nonmetal.</p>`]
+  "handouts": [
+    [
+      "Reading Notes 7.1 and 7.6–7.8",
+      "<p>In 1869 Mendeleev and Meyer both ordered the elements by atomic weight; Mendeleev gets the credit because his predicted elements were found with the predicted properties. Moseley later arranged the table by atomic number. Metals: luster, malleable, ductile, conductive, form cations, and their oxides are ionic and basic. Nonmetals: brittle, poor conductors, gain electrons, and their oxides are molecular and acidic. Alkali metals react violently with water and form salts with halogens; alkaline earth metals are harder, denser and less reactive. Hydrogen’s ionization energy is higher than any metal’s, so it is a nonmetal.</p>"
+    ]
   ],
-  worked: [
-    ["Practice #79: Which oxides are ionic? SO<sub>2</sub>, MgO, Li<sub>2</sub>O, P<sub>2</sub>O<sub>5</sub>, Y<sub>2</sub>O<sub>3</sub>, N<sub>2</sub>O, XeO<sub>3</sub>", `Ionic (metal + oxygen): MgO, Li<sub>2</sub>O, Y<sub>2</sub>O<sub>3</sub>. Molecular (nonmetal + oxygen): SO<sub>2</sub>, P<sub>2</sub>O<sub>5</sub>, N<sub>2</sub>O, XeO<sub>3</sub>.`],
-    ["Practice #87: Fr, Sr, In, Se, Br in order of increasing electronegativity.", `Fr &lt; Sr &lt; In &lt; Se &lt; Br.`],
-    ["Practice #92: Why is aluminum’s first ionization energy lower than magnesium’s?", `Al’s first electron comes from 3p, which is higher in energy and slightly farther out than Mg’s 3s electron, and it is partly shielded by the 3s pair. It is held less tightly.`],
-    ["Practice #93: For Mg, why is the IE<sub>2</sub> → IE<sub>3</sub> jump so much bigger than IE<sub>1</sub> → IE<sub>2</sub>?", `The first two electrons both come from 3s. The third comes from the n = 2 core: much closer to the nucleus and far less shielded.`],
-    ["Practice #95: NiCl<sub>2</sub> is attracted to a magnet but ZnCl<sub>2</sub> is not. Why?", `Ni<sup>2+</sup> (3d<sup>8</sup>) has two unpaired electrons: paramagnetic. Zn<sup>2+</sup> (3d<sup>10</sup>) has all electrons paired: diamagnetic.`],
-    ["Practice #97–98: Why is N<sup>3−</sup> larger than O<sup>2−</sup>? Why is Ti<sup>3+</sup> a reducing agent but Ca<sup>2+</sup> is not?", `Both ions have 10 electrons, but O has one more proton pulling them in. Ti<sup>3+</sup> is [Ar]3d<sup>1</sup> and still has an electron it can lose; Ca<sup>2+</sup> is [Ar], so losing more would mean pulling from the core.`],
-    ["Practice #102: Why is nitrogen’s first ionization energy larger than oxygen’s?", `N’s three 2p electrons are all unpaired. O’s fourth 2p electron shares an orbital, and the repulsion between the pair makes one easier to remove.`]
+  "worked": [
+    [
+      "Practice #79: Which oxides are ionic? SO<sub>2</sub>, MgO, Li<sub>2</sub>O, P<sub>2</sub>O<sub>5</sub>, Y<sub>2</sub>O<sub>3</sub>, N<sub>2</sub>O, XeO<sub>3</sub>",
+      "Ionic (metal + oxygen): MgO, Li<sub>2</sub>O, Y<sub>2</sub>O<sub>3</sub>. Molecular (nonmetal + oxygen): SO<sub>2</sub>, P<sub>2</sub>O<sub>5</sub>, N<sub>2</sub>O, XeO<sub>3</sub>."
+    ],
+    [
+      "Practice #87: Fr, Sr, In, Se, Br in order of increasing electronegativity.",
+      "Fr &lt; Sr &lt; In &lt; Se &lt; Br."
+    ],
+    [
+      "Practice #92: Why is aluminum’s first ionization energy lower than magnesium’s?",
+      "Al’s first electron comes from 3p, which is higher in energy and slightly farther out than Mg’s 3s electron, and it is partly shielded by the 3s pair. It is held less tightly."
+    ],
+    [
+      "Practice #93: For Mg, why is the IE<sub>2</sub> → IE<sub>3</sub> jump so much bigger than IE<sub>1</sub> → IE<sub>2</sub>?",
+      "The first two electrons both come from 3s. The third comes from the n = 2 core: much closer to the nucleus and far less shielded."
+    ],
+    [
+      "Practice #95: NiCl<sub>2</sub> is attracted to a magnet but ZnCl<sub>2</sub> is not. Why?",
+      "Ni<sup>2+</sup> (3d<sup>8</sup>) has two unpaired electrons: paramagnetic. Zn<sup>2+</sup> (3d<sup>10</sup>) has all electrons paired: diamagnetic."
+    ],
+    [
+      "Practice #97–98: Why is N<sup>3−</sup> larger than O<sup>2−</sup>? Why is Ti<sup>3+</sup> a reducing agent but Ca<sup>2+</sup> is not?",
+      "Both ions have 10 electrons, but O has one more proton pulling them in. Ti<sup>3+</sup> is [Ar]3d<sup>1</sup> and still has an electron it can lose; Ca<sup>2+</sup> is [Ar], so losing more would mean pulling from the core."
+    ],
+    [
+      "Practice #102: Why is nitrogen’s first ionization energy larger than oxygen’s?",
+      "N’s three 2p electrons are all unpaired. O’s fourth 2p electron shares an orbital, and the repulsion between the pair makes one easier to remove."
+    ]
   ],
-  terms: [["Reducing agent","A substance that gives up electrons (is oxidized)."]],
-  mistakes: ["Forgetting that metal oxides are ionic and nonmetal oxides are molecular."]
+  "terms": [
+    [
+      "Reducing agent",
+      "A substance that gives up electrons (is oxidized)."
+    ]
+  ],
+  "mistakes": [
+    "Forgetting that metal oxides are ionic and nonmetal oxides are molecular."
+  ]
 };
