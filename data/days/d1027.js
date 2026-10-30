@@ -29,7 +29,7 @@ EXTRA.d1027 = {
   ],
   worked: [
     ["Slides: A pickle glows orange-yellow (Na, 589 nm). Frequency? Energy of 0.10 mol of photons? Would a pickle soaked in SrCl<sub>2</sub> still give 589 nm?", `ν = 5.09 × 10<sup>14</sup> Hz. E = 3.37 × 10<sup>−19</sup> J per photon × 6.02 × 10<sup>22</sup> photons = 2.03 × 10<sup>4</sup> J. No: strontium is a different element with different electrons, so it has a different emission spectrum.`],
-    ["Practice #4: Violet light at 410 nm. Frequency, energy per photon, energy per mole?", `ν = 7.32 × 10<sup>14</sup> Hz. E = 4.85 × 10<sup>−19</sup> J per photon. × 6.02 × 10<sup>23</sup> = 2.92 × 10<sup>5</sup> J/mol.`],
+    ["Practice #4: Violet light at 410 nm. Frequency, energy per photon, energy per mole?", `ν = 7.31 × 10<sup>14</sup> Hz. E = 4.85 × 10<sup>−19</sup> J per photon. × 6.02 × 10<sup>23</sup> = 2.92 × 10<sup>5</sup> J/mol.`],
     ["Practice #5: A red laser gives 175 kJ/mol. Energy per photon and wavelength? How does violet compare?", `175 000 J ÷ 6.02 × 10<sup>23</sup> = 2.91 × 10<sup>−19</sup> J. λ = hc/E = 6.83 × 10<sup>−7</sup> m = 683 nm. Violet (4.85 × 10<sup>−19</sup> J) is about 1.7 times more energetic.`],
     ["Practice #12: Lithium’s work function is 279.7 kJ/mol. Longest wavelength that can free an electron?", `279 700 J ÷ 6.02 × 10<sup>23</sup> = 4.65 × 10<sup>−19</sup> J per electron. λ = hc/E = 4.28 × 10<sup>−7</sup> m = 428 nm. Any longer wavelength has too little energy.`],
     ["Practice #13: de Broglie wavelength of a 150 g ball at 10 m/s?", `λ = h/mv = 6.626 × 10<sup>−34</sup> ÷ (0.150 × 10) = 4.42 × 10<sup>−34</sup> m. Far too small to detect, which is why wave behavior only matters for tiny particles like electrons.`]

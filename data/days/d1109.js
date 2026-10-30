@@ -19,7 +19,7 @@ DAYS.push({
     ["Light of a certain color ejects no electrons from a metal. Which change could make electrons come out?", ["Use a much brighter lamp of the same color", "Use a longer wavelength", "Shine it for longer", "Use a shorter wavelength"], 3, "Only photon energy matters. A shorter wavelength means more energy per photon, possibly above the work function."],
     ["Successive ionization energies (kJ/mol) for an element: 578, 1817, 2745, 11 577. The element is in group:", ["13", "2", "14", "1"], 0, "The jump comes after the third electron, so it has three valence electrons (aluminum)."],
     ["In a PES spectrum, the lowest-binding-energy peak of element X is half the height of its other s peaks. This suggests:", ["X has a filled valence s subshell", "X has one electron in its outermost s subshell", "X is a noble gas", "X has no core electrons"], 1, "Peak height is proportional to electron count. Half of a full s peak (2) is one electron, as in K or Na."],
-    ["An electron in hydrogen falls from n = 5 to n = 2. Which statement is correct?", ["A photon is absorbed", "The photon is in the infrared", "A violet-blue visible photon (434 nm) is emitted", "Energy is not conserved"], 2, "Falling means emission. 5 → 2 is in the Balmer series and gives the 434 nm blue line."]
+    ["An electron in hydrogen falls from n = 5 to n = 2. Which statement is correct?", ["A photon is absorbed", "The photon is in the infrared", "A blue-violet visible photon (434 nm) is emitted", "Energy is not conserved"], 2, "Falling means emission. 5 → 2 is in the Balmer series and gives the 434 nm blue-violet line."]
   ]
 });
 
@@ -37,7 +37,7 @@ EXTRA.d1109 = {
     ["Review #3: Neon isotopes (19.99 and 21.99 amu, average 20.18); a neon line at 4.34 × 10<sup>14</sup> s<sup>−1</sup>.", `19.99x + 21.99(1 − x) = 20.18 gives 90.5% Ne-20 and 9.5% Ne-22. In 12.55 g: 0.622 mol × 6.022 × 10<sup>23</sup> × 0.095 = 3.6 × 10<sup>22</sup> Ne-22 atoms. λ = c/ν = 6.91 × 10<sup>−7</sup> m = 691 nm.`],
     ["Review #3c: Can a 1.00 × 10<sup>15</sup> s<sup>−1</sup> photon break ozone’s 387 kJ/mol bond?", `E = hν = 6.63 × 10<sup>−19</sup> J per photon × 6.022 × 10<sup>23</sup> = 399 kJ/mol. That is more than 387 kJ/mol, so yes.`],
     ["Review #4: Period 3 ionization energies (kJ/mol): 1 = 1251, 2300, 3820; 2 = 496, 4560, 6910; 3 = 738, 1450, 7730; 4 = 1000, 2250, 3360.", `Element 2 is Na: most metallic (lowest IE<sub>1</sub>, jump after one electron), forms +1. Element 3 is Mg (jump after two electrons): 1s<sup>2</sup>2s<sup>2</sup>2p<sup>6</sup>3s<sup>2</sup>. Element 1 is Cl (highest IE<sub>1</sub>): smallest radius. Element 4 is S.`],
-    ["Review #7–9: Orange 615 nm; H at n = 4 and the 4 → 2 drop; an electron at 75% of c.", `Orange: ν = 4.88 × 10<sup>14</sup> Hz, E = 3.23 × 10<sup>−19</sup> J. E<sub>4</sub> = −1.36 × 10<sup>−19</sup> J; 4 → 2 gives ΔE = −4.09 × 10<sup>−19</sup> J. Going 1 → 5 gains energy (absorption). Electron: λ = h/mv = 3.23 × 10<sup>−12</sup> m.`],
+    ["Review #7–9: Orange 615 nm; H at n = 4 and the 4 → 2 drop; an electron at 75% of c.", `Orange: ν = 4.87 × 10<sup>14</sup> Hz, E = 3.23 × 10<sup>−19</sup> J. E<sub>4</sub> = −1.36 × 10<sup>−19</sup> J; 4 → 2 gives ΔE = −4.08 × 10<sup>−19</sup> J. Going 1 → 5 gains energy (absorption). Electron: λ = h/mv = 3.23 × 10<sup>−12</sup> m.`],
     ["Review #15–16: Quantum numbers of rubidium’s outer electron; F, Br, Ca, K, Cs from smallest to largest.", `Rb is [Kr]5s<sup>1</sup>: (5, 0, 0, +½). F &lt; Br &lt; Ca &lt; K &lt; Cs.`]
   ],
   terms: [],

@@ -5,7 +5,28 @@
   const eqCards = EQ_CARDS.map(c => ({ f: c[0], b: c[1], kind: "eq" }));
   const allTerms = DAYS.flatMap(termsOf);
 
+  // Spaced repetition: each card sits in a box 0-5. Knowing it moves it up a box and schedules it
+  // 1, 2, 4, 7 or 14 days out; missing it drops it to box 0, due again today.
+  const INT = [0, 1, 2, 4, 7, 14];
+  const today = () => Math.floor((Date.now() - new Date().getTimezoneOffset() * 6e4) / 864e5);
+  const keyOf = c => c.kind + ":" + c.f.replace(/<[^>]+>/g, "");
+  const srsAll = () => { try { return JSON.parse(localStorage.getItem("m5.srs")) || {}; } catch (e) { return {}; } };
+  const srsSave = s => { try { localStorage.setItem("m5.srs", JSON.stringify(s)); } catch (e) { } };
+  const everyCard = allTerms.concat(eqCards);
+  const dueCards = () => { const s = srsAll(), t = today(); return everyCard.filter(c => s[keyOf(c)] && s[keyOf(c)][1] <= t); };
+  function record(c, knew) {
+    const s = srsAll(), k = keyOf(c), box = s[k] ? s[k][0] : 0, nb = knew ? Math.min(box + 1, 5) : 0;
+    s[k] = [nb, today() + (knew ? INT[nb] : 0)]; srsSave(s);
+  }
+  function dueLabel() {
+    const n = dueCards().length, o = document.querySelector('#fc-deck option[value="due"]');
+    if (o) o.textContent = `Due for review today (${n})`;
+    el("fc-due").textContent = n ? `${n} card${n > 1 ? "s" : ""} due for review today.` : "No cards due today. Cards you study get scheduled automatically.";
+    return n;
+  }
+
   const DECKS = [
+    { id: "due", label: "Due for review today", cards: [] },
     { id: "terms", label: `Every key term (${allTerms.length})`, cards: allTerms },
     { id: "eq", label: `Equations and constants (${eqCards.length})`, cards: eqCards },
     { id: "all", label: `Everything (${allTerms.length + eqCards.length})`, cards: allTerms.concat(eqCards) }
@@ -14,14 +35,15 @@
     return { id: d.id, label: `${m[2] ? m[1] : "Skipped"}: ${d.title} (${cards.length})`, cards };
   }));
 
-  el("fc-deck").innerHTML = `<optgroup label="Whole module">${DECKS.slice(0, 3).map(o => `<option value="${o.id}">${o.label}</option>`).join("")}</optgroup>` +
-    `<optgroup label="One folder">${DECKS.slice(3).map(o => `<option value="${o.id}">${o.label}</option>`).join("")}</optgroup>`;
+  el("fc-deck").innerHTML = `<optgroup label="Whole module">${DECKS.slice(0, 4).map(o => `<option value="${o.id}">${o.label}</option>`).join("")}</optgroup>` +
+    `<optgroup label="One folder">${DECKS.slice(4).map(o => `<option value="${o.id}">${o.label}</option>`).join("")}</optgroup>`;
 
   let deck, queue, known, flipped = false, seen = 0;
   const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 
   function start(mix) {
     deck = DECKS.find(x => x.id === el("fc-deck").value);
+    if (deck.id === "due") deck.cards = dueCards();
     queue = deck.cards.map((c, i) => i);
     if (mix) shuffle(queue);
     known = new Set(); seen = 0;
@@ -37,7 +59,10 @@
     el("fc-bar").style.setProperty("--p", known.size / n);
     el("fc-count").textContent = done ? `${n} of ${n} known` : `${known.size} of ${n} known · ${queue.length} left in the pile`;
     if (done) {
-      document.dispatchEvent(new CustomEvent("deckdone", { detail: deck.id }));
+      el("fc-done").querySelector(".big").textContent = n ? "You knew every card in this deck." : "Nothing is due for review right now.";
+      el("fc-again-all").hidden = !n;
+      if (!n) { el("fc-done-note").textContent = "Study any other deck. Cards you see are scheduled to come back here: missed ones the same day, known ones after 1, 2, 4, 7 and 14 days."; return; }
+      if (deck.id !== "due") document.dispatchEvent(new CustomEvent("deckdone", { detail: deck.id }));
       el("fc-done-note").textContent = seen > n ? `It took ${seen} flips for ${n} cards.` : `${n} cards, none missed.`;
       return;
     }
@@ -62,6 +87,7 @@
     if (!queue.length) return;
     seen++;
     const i = queue.shift();
+    record(deck.cards[i], knew); dueLabel();
     if (knew) known.add(i);
     else queue.splice(Math.min(3, queue.length), 0, i);
     const card = el("fc-card");
@@ -87,6 +113,6 @@
   });
 
   // Open on the folder for today, so the deck matches what was just studied.
-  el("fc-deck").value = typeof TODAY === "string" ? TODAY : "terms";
+  el("fc-deck").value = dueLabel() ? "due" : typeof TODAY === "string" ? TODAY : "terms";
   start(false);
 })();

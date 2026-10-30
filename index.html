@@ -54,7 +54,7 @@
   <div class="wrap">
     <div class="exam-top">
       <h2 id="exam-h">Exam on Tuesday 11/10</h2>
-      <p>It covers every folder below, from the flame test to photoelectron spectra. Work one folder a day and take its quiz, then <a class="tlink" href="#practice">take the full practice test</a>.</p>
+      <p>It covers every folder below, from the flame test to photoelectron spectra. Work one folder a day and take its quiz, then <a class="tlink" href="#practice">take the full practice test</a>. The night before, open <a class="tlink" href="#tonight">your night-before review</a>.</p>
       <p class="progress-line" id="progress-line"></p>
     </div>
     <dl class="facts">
@@ -115,6 +115,11 @@
     <div class="side">
       <h2 id="px-h">Practice test</h2>
       <p class="px-intro">Shaped like the real exam: 22 multiple choice, then 7 free response. Every question is new, none repeated from the daily quizzes. Try it without notes, then check the free response against the model answers.</p>
+      <div class="seg px-mode" id="px-mode" role="group" aria-label="Which test">
+        <button type="button" data-mode="fixed" aria-pressed="true">The practice test</button>
+        <button type="button" data-mode="mixed" aria-pressed="false">Build a mixed test</button>
+      </div>
+      <p class="px-note" id="px-note" hidden></p>
       <p class="score" id="px-score" aria-live="polite"></p>
       <div class="timer" id="timer">
         <div class="fld"><label for="tm-min">Timer</label><select id="tm-min"><option value="0">Off</option><option>40</option><option>45</option><option selected>50</option><option>55</option><option>60</option><option>90</option></select></div>
@@ -133,7 +138,8 @@
   <div class="wrap axis">
     <div class="side">
       <h2 id="pfr-h">Free response</h2>
-      <p>Work each one on paper first, showing units, then open the model answer. On the real exam the reasoning earns as many points as the number.</p>
+      <p>Work each one on paper first, showing units, then open the model answer. On the real exam the reasoning earns as many points as the number. Tick off the points you earned in each scoring guide.</p>
+      <p class="fr-total" id="fr-total" aria-live="polite"></p>
     </div>
     <div class="frs" id="px-fr"></div>
   </div>
@@ -237,6 +243,45 @@
   </div>
 </section>
 
+<section class="tonight" data-page="tonight" id="tonight" aria-labelledby="tn-h">
+  <div class="wrap">
+    <div class="bench-head tn-head">
+      <h2 id="tn-h">The night before</h2>
+      <p>Your own weak spots first, from what you have done on this site in this browser. Then the facts and exceptions that come up most. Then sleep.</p>
+    </div>
+    <div class="tn-grid">
+      <div class="tn-mine" id="tn-mine"></div>
+      <div>
+        <h3>The highest-yield facts</h3>
+        <ol class="tn-facts">
+          <li><b>Exceptions:</b> Cr = [Ar]4s<sup>1</sup>3d<sup>5</sup> and Cu = [Ar]4s<sup>1</sup>3d<sup>10</sup>.</li>
+          <li><b>Cations lose the highest-n electrons first:</b> Fe<sup>2+</sup> = [Ar]3d<sup>6</sup>, because 4s leaves before 3d.</li>
+          <li><b>Ionization energy dips:</b> B &lt; Be (the 2p electron is higher in energy) and O &lt; N (a paired p electron repels). The same happens with Al &lt; Mg and S &lt; P.</li>
+          <li><b>Successive ionization energies:</b> the big jump means you have reached the core. The number of electrons removed before it gives the group.</li>
+          <li><b>Electron affinity:</b> Cl releases more energy than F, because F is small and its added electron is crowded.</li>
+          <li><b>Isoelectronic species:</b> more protons means smaller, so O<sup>2−</sup> &gt; F<sup>−</sup> &gt; Na<sup>+</sup> &gt; Mg<sup>2+</sup>.</li>
+          <li><b>Photoelectric effect:</b> brighter light ejects more electrons, not faster ones. Only the frequency changes the kinetic energy.</li>
+          <li><b>Hydrogen series:</b> ΔE = E<sub>final</sub> − E<sub>initial</sub>, and negative means a photon is emitted. Lines ending at n = 1 are ultraviolet, at n = 2 visible, at n = 3 infrared.</li>
+          <li><b>Units:</b> convert nm to m (× 10<sup>−9</sup>) before using c = λν or E = hc/λ. J per photon × N<sub>A</sub> ÷ 1000 gives kJ/mol.</li>
+          <li><b>Quantum numbers:</b> l runs from 0 to n − 1 and m<sub>l</sub> from −l to +l. A subshell has 2l + 1 orbitals, and a shell holds 2n<sup>2</sup> electrons.</li>
+          <li><b>Hund’s rule and magnetism:</b> fill orbitals singly before pairing. Any unpaired electron makes a substance paramagnetic: O<sub>2</sub> is paramagnetic, N<sub>2</sub> is diamagnetic.</li>
+          <li><b>PES:</b> peaks further left have higher binding energy and sit closer to the nucleus. Peak height is the number of electrons.</li>
+          <li><b>Explaining trends:</b> use Z<sub>eff</sub>, core electrons (shielding) and distance, which is Coulomb’s law. Never “it wants an octet.”</li>
+          <li><b>Beer–Lambert:</b> A is proportional to c, so read an unknown off the standards’ line and keep the same cuvette.</li>
+        </ol>
+        <h3>Before you go to bed</h3>
+        <ul class="tn-check">
+          <li><label><input type="checkbox"> Calculator charged and in your bag</label></li>
+          <li><label><input type="checkbox"> Pencils and an eraser</label></li>
+          <li><label><input type="checkbox"> One last look at the <a href="#equations">equation sheet</a>: know which constants are given</label></li>
+          <li><label><input type="checkbox"> Retried every missed question once</label></li>
+          <li><label><input type="checkbox"> Asleep at a reasonable hour. It helps your memory more than another hour of cramming.</label></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="flash" data-page="flashcards" id="flashcards" aria-labelledby="fc-h">
   <div class="wrap axis">
     <div class="side">
@@ -246,6 +291,7 @@
         <div class="fld"><label for="fc-deck">Deck</label><select id="fc-deck"></select></div>
         <label class="chk"><input type="checkbox" id="fc-rev"> Show the definition first</label>
       </div>
+      <p class="fc-due" id="fc-due"></p>
       <p class="fc-count" id="fc-count" aria-live="polite"></p>
       <div class="fc-links"><button type="button" class="linkbtn" id="fc-shuffle">Shuffle</button><button type="button" class="linkbtn" id="fc-restart">Start this deck over</button></div>
       <p class="fc-keys">On a keyboard: Space flips, → for knew it, ← for again.</p>
@@ -500,6 +546,7 @@
       <ul class="places">
         <li><a href="#days" id="foot-today">Today’s folder</a></li>
         <li><a href="#practice">Practice test</a></li>
+        <li><a href="#tonight">Night-before review</a></li>
         <li><a href="#flashcards">Flashcards</a></li>
         <li><a href="#bohr">Bohr model</a></li>
         <li><a href="#tools">Chemistry tools</a></li>
@@ -532,6 +579,7 @@
 <script src="data/cards.js"></script>
 <script src="data/elements.js"></script>
 <script src="data/practice-test.js"></script>
+<script src="data/fr-rubrics.js"></script>
 <script src="practice-test.js"></script>
 <script src="data/pes.js"></script>
 <script src="flashcards.js"></script>
@@ -539,6 +587,7 @@
 <script src="study-extras.js"></script>
 <script src="bohr.js"></script>
 <script src="ui-extras.js"></script>
+<script src="tonight.js"></script>
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>

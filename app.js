@@ -148,7 +148,7 @@ document.addEventListener("click", e => {
 /* Hash routing: #d1027 opens that folder */
 /* Pages: one section group shows at a time, picked by the hash */
 const PAGE_OF = { home: "home", top: "home", about: "home", days: "days", reading: "days", quiz: "days",
-  practice: "practice", "practice-fr": "practice", drills: "drills", bohr: "bohr", review: "practice", search: "search", flashcards: "flashcards", tools: "tools", spectrum: "tools", equations: "equations" };
+  practice: "practice", "practice-fr": "practice", drills: "drills", tonight: "tonight", bohr: "bohr", review: "practice", search: "search", flashcards: "flashcards", tools: "tools", spectrum: "tools", equations: "equations" };
 function setPage(h) {
   const p = META[h] ? "days" : PAGE_OF[h] || "home";
   const changed = document.body.dataset.page !== p;

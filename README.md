@@ -22,6 +22,8 @@ A static site with no build step. Vercel serves these files as they are.
 | PES peak data for the PES tool (elements 1–36) | `data/pes.js` |
 | Bohr model page (atom, energy ladder, equations, wave) | `bohr.js` |
 | Day sub-tabs, equation links, topic colours, light/dark switch, quiz scores on tabs | `ui-extras.js` |
+| Free-response scoring guides | `data/fr-rubrics.js` |
+| Night-before page | `tonight.js` |
 | Element values for the periodic trends explorer | `data/elements.js` |
 | Electron configuration, quantum numbers, trends explorer and calculators | `tools.js` |
 
